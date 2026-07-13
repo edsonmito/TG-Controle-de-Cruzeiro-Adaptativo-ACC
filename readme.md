@@ -7,7 +7,7 @@ O framework matemático adota **Funções de Lyapunov de Controle (CLF)** para o
 
 ---
 
-## 📌 Visão Geral do Projeto
+## Visão Geral do Projeto
 
 O objetivo do sistema ACC é regular a velocidade de um veículo seguidor (*host*) para que ele atinja uma velocidade de cruzeiro desejada ($V_d$) quando a pista estiver livre. Caso haja um veículo líder (*leader*) mais lento à frente, o controlador prioriza de forma absoluta a distância de segurança bi-dimensional baseada em tempo (*time headway*).
 
@@ -20,7 +20,7 @@ O objetivo do sistema ACC é regular a velocidade de um veículo seguidor (*host
 
 ---
 
-## 🧮 Formulação Matemática
+##  Formulação Matemática
 
 O sistema é modelado no espaço de estados não-linear $\dot{x} = f(x) + g(x)u$, onde as derivadas de direção (**Derivadas de Lie**) são calculadas para mapear o impacto do controle sobre a segurança e estabilidade.
 
@@ -28,6 +28,9 @@ O sistema é modelado no espaço de estados não-linear $\dot{x} = f(x) + g(x)u$
 Para rastrear a velocidade desejada $V_d$, define-se a função candidata de Lyapunov:
 $$V(x) = (V_f - V_d)^2$$
 O otimizador busca decrescer $V(x)$ obedecendo à restrição de estabilidade $L_f V(x) + L_g V(x)u \le -\epsilon V(x) + \delta$, onde $\delta$ é uma variável de folga (*slack variable*) para garantir viabilidade se a segurança exigir o sacrifício do desempenho.
+
+* [**Desempenho via CLF (Control Lyapunov Functions)**](docs/CLF.md): Garante que o veículo persiga e estabilize na velocidade de cruzeiro desejada de forma assintótica.
+
 
 ### 2. Segurança Estrita (CBF)
 A margem de segurança é definida pela função de barreira baseada no tempo de headway ($T_d$):
@@ -37,6 +40,7 @@ $$L_f h(x) + L_g h(x)u \ge -\gamma h(x)$$
 
 Onde $L_f$ e $L_g$ representam as Derivadas de Lie calculadas dinamicamente no sistema.
 
+* [**Segurança via CBF (Control Barrier Functions)**](docs/CBF.md): Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
 ---
 
 ## 📂 Estrutura do Repositório
