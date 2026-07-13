@@ -1,10 +1,4 @@
-Para consolidar o seu repositório do GitHub e dar suporte teórico aos visitantes, é excelente documentar os fundamentos das **Funções de Lyapunov**. Esta teoria, que remonta ao final do século XIX com o matemático russo Aleksandr Lyapunov, é a pedra angular para a análise de estabilidade de sistemas dinâmicos não-lineares e possui ramificações práticas profundas na engenharia de controle moderna.
-
-Abaixo, apresento uma explicação detalhada e estruturada de forma genérica sobre a estrutura das funções de Lyapunov e suas principais implementações e evoluções teóricas voltadas para projetos de controle.
-
----
-
-# Estrutura Genérica e Teoria das Funções de Lyapunov
+# Teoria das Funções de Lyapunov
 
 ## 1. O que é uma Função de Lyapunov? (Estrutura Genérica)
 
