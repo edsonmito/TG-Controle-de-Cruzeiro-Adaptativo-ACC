@@ -29,7 +29,7 @@ Para rastrear a velocidade desejada $V_d$, define-se a função candidata de Lya
 $$V(x) = (V_f - V_d)^2$$
 O otimizador busca decrescer $V(x)$ obedecendo à restrição de estabilidade $L_f V(x) + L_g V(x)u \le -\epsilon V(x) + \delta$, onde $\delta$ é uma variável de folga (*slack variable*) para garantir viabilidade se a segurança exigir o sacrifício do desempenho.
 
-* [**Desempenho via CLF (Control Lyapunov Functions)**](docs/CLF.md): Garante que o veículo persiga e estabilize na velocidade de cruzeiro desejada de forma assintótica.
+* <a href="docs/CLF.md">Desempenho via CLF (Control Lyapunov Functions)</a>: Garante que o veículo persiga e estabilize na velocidade de cruzeiro desejada de forma assintótica.
 
 
 ### 2. Segurança Estrita (CBF)
@@ -40,7 +40,7 @@ $$L_f h(x) + L_g h(x)u \ge -\gamma h(x)$$
 
 Onde $L_f$ e $L_g$ representam as Derivadas de Lie calculadas dinamicamente no sistema.
 
-* [**Segurança via CBF (Control Barrier Functions)**](docs/CBF.md): Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
+* <a href="docs/cbf.md">Segurança via CBF (Control Barrier Functions)</a>: Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
 ---
 
 ## 📂 Estrutura do Repositório
