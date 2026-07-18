@@ -31,7 +31,62 @@ $$\dot{V}(x) = \frac{\partial V}{\partial x}\dot{x} = \frac{\partial V}{\partial
 * Se $\dot{V}(x) > 0$: O sistema é Instável.
 ---
 
-## 2. Implementações e Evoluções na Teoria de Controle
+
+Claro! A função direta de Lyapunov (também chamada de **segundo método de Lyapunov** ou **método direto**) é uma ferramenta para analisar a **estabilidade** de sistemas dinâmicos sem precisar resolver explicitamente as equações diferenciais que os descrevem.
+
+## A ideia central
+
+Imagina um sistema físico, como um pêndulo com atrito. Sabes intuitivamente que ele vai parar no ponto de equilíbrio (para baixo) porque a energia mecânica vai sempre diminuindo ao longo do tempo até chegar a zero.
+
+Lyapunov generalizou essa ideia: em vez de "energia física", usamos uma função matemática **V(x)** que se comporta como uma energia generalizada. Se conseguirmos mostrar que essa função:
+
+1. É sempre positiva (exceto no ponto de equilíbrio, onde é zero)
+2. Diminui continuamente ao longo das trajetórias do sistema
+
+... então podemos concluir que o sistema é **estável**, sem precisar resolver a equação diferencial.
+
+## Definição formal
+
+Considera um sistema autónomo:
+$$\dot{x} = f(x), \quad f(0) = 0$$
+
+onde x = 0 é o ponto de equilíbrio. Uma função **V(x)** é candidata a função de Lyapunov se, numa vizinhança de x = 0:
+
+- **V(0) = 0**
+- **V(x) > 0** para x ≠ 0 (função definida positiva)
+
+Depois calculamos a derivada de V ao longo das trajetórias do sistema:
+$$\dot{V}(x) = \frac{\partial V}{\partial x} \cdot f(x)$$
+
+E analisamos o sinal:
+
+| Condição em V̇(x) | Conclusão |
+|---|---|
+| V̇(x) ≤ 0 | Estabilidade (no sentido de Lyapunov) |
+| V̇(x) < 0 (estritamente, para x ≠ 0) | Estabilidade **assintótica** |
+| V̇(x) > 0 | Instabilidade |
+
+## 3. Exemplo simples
+
+Sistema: $\dot{x} = -x^3$
+
+Candidata: $V(x) = x^2$ (positiva definida, V(0)=0)
+
+Derivada:
+$$\dot{V}(x) = 2x \cdot \dot{x} = 2x \cdot (-x^3) = -2x^4$$
+
+Como $-2x^4 < 0$ para todo x ≠ 0, concluímos que o equilíbrio x = 0 é **assintoticamente estável** — e chegámos a essa conclusão sem resolver a equação diferencial!
+
+## Por que é "direto"?
+
+Porque não exige integrar as equações de movimento — daí o nome "método direto", em oposição ao "primeiro método" (ou indireto), que envolve linearizar o sistema e analisar autovalores.
+
+## O desafio prático
+
+O maior problema é que **não há uma receita geral** para encontrar V(x). É preciso "adivinhar" ou construir uma função candidata (muitas vezes baseada em energia física, formas quadráticas, etc.) e depois verificar se ela satisfaz as condições. Se uma tentativa falhar, isso não prova instabilidade — só significa que essa função não serviu.
+
+
+## 4. Implementações e Evoluções na Teoria de Controle
 
 Ao longo das décadas, o conceito original de Lyapunov (que servia apenas para *analisar* se um sistema já existente era estável) foi estendido para o *projeto e síntese* de controladores ativos. Algumas das implementações teóricas mais importantes e utilizadas na engenharia de controle são:
 
