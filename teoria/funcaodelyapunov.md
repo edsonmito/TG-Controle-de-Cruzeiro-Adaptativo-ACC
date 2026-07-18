@@ -4,7 +4,7 @@
 
 Analogamente ao conceito físico de **energia**, uma Função de Lyapunov $V(x)$ é uma construção matemática escalar utilizada para determinar a estabilidade de um sistema dinâmico sem a necessidade de resolver explicitamente suas equações diferenciais (que muitas vezes são não-lineares e impossíveis de resolver analiticamente). Em outras palavras, Lyapunov generalizou a ideia em que, em vez de "energia física", usamos uma função matemática $V(x)$ que se comporta como uma energia generalizada.
 
-Assim, se conseguirmos mostrar que essa função é sempre positiva (exceto no ponto de equilíbrio, onde é zero), e Diminui continuamente ao longo das trajetórias do sistema, então podemos concluir que o sistema é estável, sem precisar resolver a equação diferencial.
+Assim, se conseguirmos mostrar que essa função é sempre positiva (exceto no ponto de equilíbrio, onde é zero), e diminui continuamente ao longo das trajetórias do sistema, então podemos concluir que o sistema é estável, sem precisar resolver a equação diferencial.
 
 ## 2. Definição formal:
 
