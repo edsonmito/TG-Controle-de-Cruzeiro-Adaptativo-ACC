@@ -79,8 +79,6 @@ Substituindo $$( \dot{h} = L_fh + L_gh \cdot u )$$ na condição de invariância
 - **CLF**: $$( L_fV + L_gV \cdot u \leq -c_V V + \delta )$$ (queremos ser **menores ou iguais** a zero para estabilidade).
 - **CBF**: $$( L_fh + L_gh \cdot u + \gamma h \geq 0 )$$ (queremos ser **maiores ou iguais** a zero para segurança).
 
----
-
 ## 6. O Parâmetro $$( \gamma )$$ (O "Gatilho" da Segurança)
 
 Assim como $$( c_V )$$ define a agressividade da CLF, $$( \gamma )$$ define a "sensibilidade" da CBF.
@@ -89,32 +87,31 @@ Assim como $$( c_V )$$ define a agressividade da CLF, $$( \gamma )$$ define a "s
 - **$$( \gamma )$$ baixo**: O carro só freia no **último segundo** possível. A segurança ainda é garantida, mas a frenagem será muito brusca (desconfortável e perigosa para o carro de trás).
 - **Valor típico na literatura**: Geralmente entre 1 e 5, ajustado para equilibrar conforto e segurança.
 
----
 
-## Passo 7: Conexão Direta com o seu Código (`LIE_2026.m`)
+## 7. Conexão Direta com o seu Código (`LIE_2026.m`)
 
 Toda essa dedução matemática está implementada no seu script. Veja a correspondência:
 
 | Matemática (Teoria) | Código (MATLAB) | O que faz |
 | :--- | :--- | :--- |
-| \( h = D - \tau_h V_f \) | `hacc = xr - Td*Vf` | Define a função de barreira. |
-| \( L_fh \) | `Lfhacc = transpose(gradient(hacc,[Vf;xr]))*f` | Calcula a derivada independente do controle. |
-| \( L_gh \) | `Lghacc = transpose(gradient(hacc,[Vf;xr]))*g` | Calcula o coeficiente que multiplica o controle \( u \). |
+| $$( h = D - \tau_h V_f )$$ | `hacc = xr - Td*Vf` | Define a função de barreira. |
+| $$( L_fh )$$ | `Lfhacc = transpose(gradient(hacc,[Vf;xr]))*f` | Calcula a derivada independente do controle. |
+| $$( L_gh )$$ | `Lghacc = transpose(gradient(hacc,[Vf;xr]))*g` | Calcula o coeficiente que multiplica o controle \( u \). |
 
 ---
 
 ## Resumo para o seu TCC (Como escrever esta análise)
 
-> "A CBF foi definida como \( h = D - \tau_h V_f \), representando a distância de segurança ajustada pelo tempo de reação do motorista. A condição de invariância do conjunto seguro, \( \dot{h} + \gamma h \geq 0 \), garante que o veículo nunca viole a distância mínima em relação ao líder. Separando a dinâmica em \( L_fh \) e \( L_gh \), obteve-se a restrição linear \( L_fh + L_gh u + \gamma h \geq 0 \). 
+> "A CBF foi definida como $$( h = D - \tau_h V_f )$$, representando a distância de segurança ajustada pelo tempo de reação do motorista. A condição de invariância do conjunto seguro, $$( \dot{h} + \gamma h \geq 0 )$$, garante que o veículo nunca viole a distância mínima em relação ao líder. Separando a dinâmica em $$( L_fh )$$ e $$( L_gh )$$, obteve-se a restrição linear $$( L_fh + L_gh u + \gamma h \geq 0 )$$. 
 > 
-> Enquanto a CLF impõe uma desigualdade de 'menor ou igual' (\( \leq \)) para garantir a convergência da velocidade, a CBF impõe uma desigualdade de 'maior ou igual' (\( \geq \)) para garantir a manutenção da distância. O QP resolve este conflito priorizando a restrição da CBF (rígida), relaxando a CLF (\( \delta \)) quando necessário."
+> Enquanto a CLF impõe uma desigualdade de 'menor ou igual' ($$( \leq )$$) para garantir a convergência da velocidade, a CBF impõe uma desigualdade de 'maior ou igual' ($$( \geq )$$) para garantir a manutenção da distância. O QP resolve este conflito priorizando a restrição da CBF (rígida), relaxando a CLF ($$( \delta )$$) quando necessário."
 
 ---
 
 **Agora você tem os dois lados da mesma moeda:** 
 - **CLF**: puxa o carro para frente (velocidade). 
 - **CBF**: segura o carro para trás (distância). 
-O **QP** (com a ajuda do \(\delta\) e do \(p_\delta\)) é o árbitro que decide, a cada instante, qual dos dois vai vencer a queda de braço!
+O **QP** (com a ajuda do $$(\delta)$$ e do $$(p_\delta)$$) é o árbitro que decide, a cada instante, qual dos dois vai vencer a queda de braço!
 
 Quando você for escrever o TCC, essa estrutura lado a lado (CLF vs CBF) impressiona muito, porque mostra que você domina o duelo teórico por trás do método. 🚀
 
