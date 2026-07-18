@@ -11,7 +11,7 @@ Define-se o vetor de estados do veículo controlado como:
 onde:
 - $V_f$: Velocidade do veículo controlado (m/s).
 - $D$: Distância relativa entre o veículo controlado e o veículo líder (m).
-- $V_l$: Velocidade do veículo líder (m/s) – considerada uma entrada exógena.
+- $V_l$: Velocidade do veículo líder (m/s).
 - $u$: Força de tração/frenagem (ou aceleração desejada) (m/s²).
 - $m$: Massa do veículo (kg).
 - $F_r(V_f)$: Resistência aerodinâmica (arrasto), geralmente modelada como $F_r = f_0 + f_1 V_f + f_2 V_f^2$.
