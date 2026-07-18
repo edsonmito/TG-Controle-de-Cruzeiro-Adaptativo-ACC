@@ -43,7 +43,7 @@ Para estender essa condição para **todo o conjunto seguro** (e não só na bor
 
 ---
 
-## Passo 3: Aplicando a Regra da Cadeia (Como $$( u )$$ aparece?)
+## 3. Aplicando a Regra da Cadeia
 
 Para o QP usar essa restrição, precisamos explicitar o controle $$( u )$$ em $$( \dot{h} )$$. Aplicamos a Regra da Cadeia:
 
