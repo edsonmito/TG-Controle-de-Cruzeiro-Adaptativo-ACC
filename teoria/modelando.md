@@ -12,6 +12,11 @@ Onde:
 - **$V_f$** : Velocidade longitudinal do veículo controlado (seguidor) em m/s.
 - **$D$** : Distância relativa entre o veículo seguidor e o veículo líder em m.
 
+Consideramos também as seguintes variáveis exógenas e parâmetros:
+- **$V_l$** : Velocidade do veículo líder (m/s), a entrada externa (distúrbio).
+- **$u$** : Força de tração/frenagem aplicada ao veículo (N), a variável de controle.
+- **$m$** : Massa do veículo (kg).
+
 ## 2. Dinâmica da Velocidade ($\dot{V}_f$)
 
 Aplicando a Segunda Lei de Newton na direção longitudinal do movimento, temos que a massa vezes a aceleração é igual à soma das forças externas:
@@ -21,11 +26,6 @@ $$ \sum F = m a = m \cdot \dot{V}_f  $$
 As forças atuantes são:
 1. **Força de Tração/Frenagem ($u$)**: positiva para aceleração, negativa para frenagem.
 2. **Força de Arrasto Aerodinâmico ($F_r$)**: atua contra o movimento (sentido negativo).
-
-Consideramos também as seguintes variáveis exógenas e parâmetros:
-- **$V_l$** : Velocidade do veículo líder (m/s), a entrada externa (distúrbio).
-- **$u$** : Força de tração/frenagem aplicada ao veículo (N), a variável de controle.
-- **$m$** : Massa do veículo (kg).
 
 Portanto:
 
