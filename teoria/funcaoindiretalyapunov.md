@@ -25,7 +25,7 @@ O **Método Indireto** consiste nos seguintes passos:
    A = \left. \frac{\partial f}{\partial x} \right|_{x = 0}
    \]
 
-2. **Analisar os autovalores** (\(\lambda_i\)) da matriz \( A \).
+2. **Analisar os autovalores** ($$\lambda_i\$$) da matriz $$\ A \$$.
 
 3. **Teorema (Lyapunov - Primeiro Método)**:
    - Se **todos** os autovalores de \( A \) têm **parte real estritamente negativa** (\(\text{Re}(\lambda_i) < 0\)), então o ponto de equilíbrio \( x = 0 \) do **sistema não-linear original** é **assintoticamente estável**.
