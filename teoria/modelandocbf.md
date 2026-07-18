@@ -29,7 +29,7 @@ A função que define a fronteira da segurança no ACC é a distância relativa 
 
 ## Passo 2: A Condição de Invariância (A "Regra de Ouro" da CBF)
 
-Para garantir que o carro **nunca** saia da região segura (\( h < 0 \)), a teoria da CBF (baseada no Teorema de Nagumo) exige que, quando o carro estiver na fronteira (\( h = 0 \)), a derivada de \( h \) não pode ser negativa (ou seja, não pode estar diminuindo ainda mais).
+Para garantir que o carro **nunca** saia da região segura ($$( h < 0 )$$), a teoria da CBF (baseada no Teorema de Nagumo) exige que, quando o carro estiver na fronteira ($$( h = 0 )$$), a derivada de $$( h )$$ não pode ser negativa (ou seja, não pode estar diminuindo ainda mais).
 
 Para estender essa condição para **todo o conjunto seguro** (e não só na borda), a teoria usa a seguinte desigualdade:
 
@@ -38,14 +38,14 @@ Para estender essa condição para **todo o conjunto seguro** (e não só na bor
 </div>
 
 **Interpretação Física:**
-- Se \( h \) está grande (longe do perigo), \( \dot{h} \) pode ser um pouco negativo (distância diminuindo), desde que \( \gamma h \) compense isso.
-- Se \( h \) está pequeno (perto do perigo), \( \dot{h} \) **precisa ser positivo** (a distância precisa estar aumentando, ou seja, o carro está freando para abrir espaço).
+- Se $$( h )$$ está grande (longe do perigo), $$( \dot{h} )$$ pode ser um pouco negativo (distância diminuindo), desde que $$( \gamma h )$$ compense isso.
+- Se $$( h )$$ está pequeno (perto do perigo), $$( \dot{h} )$$ **precisa ser positivo** (a distância precisa estar aumentando, ou seja, o carro está freando para abrir espaço).
 
 ---
 
-## Passo 3: Aplicando a Regra da Cadeia (Como \( u \) aparece?)
+## Passo 3: Aplicando a Regra da Cadeia (Como $$( u )$$ aparece?)
 
-Para o QP usar essa restrição, precisamos explicitar o controle \( u \) em \( \dot{h} \). Aplicamos a Regra da Cadeia:
+Para o QP usar essa restrição, precisamos explicitar o controle $$( u )$$ em $$( \dot{h} )$$. Aplicamos a Regra da Cadeia:
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%3D%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20D%7D%20%5Ccdot%20%5Cdot%7BD%7D%20%2B%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20V_f%7D%20%5Ccdot%20%5Cdot%7BV%7D_f">
