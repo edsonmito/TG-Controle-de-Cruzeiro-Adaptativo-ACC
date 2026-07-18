@@ -1,10 +1,3 @@
-Perfeito! Agora vamos colocar a mão na massa e escrever todas as equações do **veículo, da CLF, da CBF e do QP** no formato Markdown com centralização e cor branca (para o Dark Mode do GitHub).
-
-Aqui está o bloco completo e pronto para você copiar e colar no seu repositório:
-
----
-
-```markdown
 # Modelagem Matemática do Veículo e Equações do Controlador CLF-CBF-QP
 
 ## 1. Dinâmica do Veículo (Sistema ACC)
