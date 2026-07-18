@@ -68,6 +68,8 @@ Onde:
 - $$( c_V > 0 )$$: Taxa de decaimento exponencial (quanto maior, mais rápida a resposta).
 - $$( \delta \)$$: Variável de relaxação (slack), que permite sacrificar a estabilidade temporariamente para priorizar a segurança.
 
+<a href="modelandoclf.md">Ver modelagem do CLF.</a>
+
 
 ## 3. Função de Barreira de Controle (CBF) - Segurança
 
