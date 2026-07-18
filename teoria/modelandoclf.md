@@ -39,20 +39,20 @@ Aplicando a regra da cadeia para derivar $V$:
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D%20%3D%20%5Cfrac%7Bd%7D%7Bdt%7D(e%5E2)%20%3D%202%20%5Ccdot%20e%20%5Ccdot%20%5Cfrac%7Bde%7D%7Bdt%7D">
 </div>
-
+<p>
 Derivando o erro $e = V_f - V_d$ em relação ao tempo.
-
+<p>
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cfrac%7Bde%7D%7Bdt%7D%20%3D%20%5Cdot%7BV%7D_f%20-%20%5Cdot%7BV%7D_d%20%3D%20%5Cdot%7BV%7D_f%20-%200%20%3D%20%5Cdot%7BV%7D_f">
 </div>
-
+<p>
 Lembrando da dinâmica do veículo (vinda da modelagem anterior):
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
 </div>
-
+<p>
 Substituindo $\dot{V}_f$ pela equação do veículo, temos a derivada completa expandida:
-
+<p>
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u%20%5Cright)">
 </div>
