@@ -12,7 +12,6 @@ Para um sistema dinâmico autônomo descrito por:
 
 $$\dot{x} = f(x), \quad f(0) = 0$$
 
-
 onde $x = 0$ é um ponto de equilíbrio, uma função escalar continuasmente diferenciável $V: \mathbb{R}^n \to \mathbb{R}$ é considerada uma **Função Candidata de Lyapunov** se atender a duas condições geométricas fundamentais na vizinhança do ponto de equilíbrio:
 
 1. **Definida Positiva:** A "energia" deve ser zero no equilíbrio e estritamente positiva em qualquer outro lugar.
@@ -29,42 +28,6 @@ $$\dot{V}(x) = \frac{\partial V}{\partial x}\dot{x} = \frac{\partial V}{\partial
 * Se $\dot{V}(x) \le 0$ (Semidefinida Negativa): O sistema é **Estável** no sentido de Lyapunov (as trajetórias não divergem, mas podem orbitar infinitamente).
 * Se $\dot{V}(x) < 0$ (Definida Negativa): O sistema é **Assintoticamente Estável** (a energia decai até zero, forçando o estado $x(t)$ a retornar exatamente para o ponto de equilíbrio $0$).
 * Se $\dot{V}(x) > 0$: O sistema é Instável.
----
-
-
-Claro! A função direta de Lyapunov (também chamada de **segundo método de Lyapunov** ou **método direto**) é uma ferramenta para analisar a **estabilidade** de sistemas dinâmicos sem precisar resolver explicitamente as equações diferenciais que os descrevem.
-
-## A ideia central
-
-Imagina um sistema físico, como um pêndulo com atrito. Sabes intuitivamente que ele vai parar no ponto de equilíbrio (para baixo) porque a energia mecânica vai sempre diminuindo ao longo do tempo até chegar a zero.
-
-Lyapunov generalizou essa ideia: em vez de "energia física", usamos uma função matemática **V(x)** que se comporta como uma energia generalizada. Se conseguirmos mostrar que essa função:
-
-1. É sempre positiva (exceto no ponto de equilíbrio, onde é zero)
-2. Diminui continuamente ao longo das trajetórias do sistema
-
-... então podemos concluir que o sistema é **estável**, sem precisar resolver a equação diferencial.
-
-## Definição formal
-
-Considera um sistema autónomo:
-$$\dot{x} = f(x), \quad f(0) = 0$$
-
-onde x = 0 é o ponto de equilíbrio. Uma função **V(x)** é candidata a função de Lyapunov se, numa vizinhança de x = 0:
-
-- **V(0) = 0**
-- **V(x) > 0** para x ≠ 0 (função definida positiva)
-
-Depois calculamos a derivada de V ao longo das trajetórias do sistema:
-$$\dot{V}(x) = \frac{\partial V}{\partial x} \cdot f(x)$$
-
-E analisamos o sinal:
-
-| Condição em V̇(x) | Conclusão |
-|---|---|
-| V̇(x) ≤ 0 | Estabilidade (no sentido de Lyapunov) |
-| V̇(x) < 0 (estritamente, para x ≠ 0) | Estabilidade **assintótica** |
-| V̇(x) > 0 | Instabilidade |
 
 ## 3. Exemplo simples
 
