@@ -153,8 +153,3 @@ Onde:
 **Nota Final:** Este sistema de equações é a base teórica implementada no seu modelo Simulink (`ACC_TESTE_2026`) e resolvida numericamente pelo algoritmo de Hildreth (`QPhild.m`). Enquanto a CLF puxa o sistema para \( V_d \), a CBF o segura para que \( D \) não caia abaixo de \( \tau_h V_f \), criando um equilíbrio dinâmico entre desempenho e segurança.
 ```
 
----
-
-Este bloco cobre **tudo** que você precisa para a seção de modelagem matemática do seu TCC. Está formatado especificamente para o **Dark Mode do GitHub** (texto branco, fundo escuro, equações centralizadas). 
-
-Se quiser, posso agora gerar a versão com fundo branco (`&bg=white`) para ser universal, ou posso explicar como cada uma dessas equações se traduz diretamente nas linhas do seu código `LIE_2026.m`!
