@@ -21,7 +21,7 @@ A dinâmica do sistema é descrita pelas equações diferenciais ordinárias:
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
 </div>
-
+<p>
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BD%7D%20%3D%20V_l%20-%20V_f">
 </div>
