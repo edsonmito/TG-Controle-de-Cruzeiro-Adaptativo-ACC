@@ -21,9 +21,9 @@ A função que define a fronteira da segurança no ACC é a distância relativa 
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20h(x)%20%3D%20D%20-%20%5Ctau_h%20%5Ccdot%20V_f">
 </div>
 
-- Se $$ h(x) > 0 $$: Estamos seguros (distância folgada).
-- Se $$ h(x) = 0 $$: Estamos no limite da segurança (fronteira).
-- Se $$ h(x) < 0 $$: Violamos a segurança (colisão ou distância perigosa).
+- Se $ h(x) > 0 $: Estamos seguros (distância folgada).
+- Se $ h(x) = 0 $: Estamos no limite da segurança (fronteira).
+- Se $ h(x) < 0 $: Violamos a segurança (colisão ou distância perigosa).
 
 ## 2. A Condição de Invariância
 
