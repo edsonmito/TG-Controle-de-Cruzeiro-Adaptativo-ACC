@@ -34,13 +34,6 @@ A função de Lyapunov mais clássica e intuitiva para erros de rastreamento é 
 
 ## 3. Calculando a Derivada Temporal ($\dot{V}$)
 
-Agora vem a parte principal da análise de Lyapunov: precisamos calcular como essa função varia com o tempo, ou seja, sua derivada.
-
-Lembrando da dinâmica do veículo (vinda da modelagem anterior):
-<div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
-</div>
-
 Aplicando a regra da cadeia para derivar $V$:
 
 <div align="center">
@@ -52,16 +45,14 @@ Calculando a derivada do erro ($\dot{e}$):
 Agora derivamos o erro $e = V_f - V_d$ no tempo.
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cfrac%7Bde%7D%7Bdt%7D%20%3D%20%5Cfrac%7Bd%7D%7Bdt%7D(V_f%20-%20V_d)">
-</div>
-
- A grande sacada (Por que $\dot{V}_f$ aparece):
-
-Como a velocidade desejada $V_d$ é uma constante (definida pelo motorista), sua derivada no tempo é ZERO ($\dot{V}_d = 0$). Já a velocidade do veículo $V_f$ varia, e sua derivada é exatamente a aceleração ($\dot{V}_f$).
-
-<div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cfrac%7Bde%7D%7Bdt%7D%20%3D%20%5Cdot%7BV%7D_f%20-%20%5Cdot%7BV%7D_d%20%3D%20%5Cdot%7BV%7D_f%20-%200%20%3D%20%5Cdot%7BV%7D_f">
 </div>
+
+Lembrando da dinâmica do veículo (vinda da modelagem anterior):
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
+</div>
+
 
 Resultado final (A CLF derivada):
 
