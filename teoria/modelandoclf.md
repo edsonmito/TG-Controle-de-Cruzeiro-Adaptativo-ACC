@@ -32,7 +32,7 @@ A função de Lyapunov mais clássica e intuitiva para erros de rastreamento é 
    - Quando $V_f \to \infty$, $V(x) \to \infty$. Isso garante estabilidade global (não importa se o carro está a 10 m/s ou 100 m/s, a função funciona).
 
 
-## Passo 3: Calculando a Derivada Temporal ($\dot{V}$) - O "Destrinchamento"
+## 3. Calculando a Derivada Temporal ($\dot{V}$)
 
 Agora vem a parte principal da análise de Lyapunov: precisamos calcular como essa função varia com o tempo, ou seja, sua derivada.
 
