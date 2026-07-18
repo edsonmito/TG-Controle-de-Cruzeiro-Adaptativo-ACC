@@ -12,7 +12,7 @@ Considere um sistema não-linear autônomo na forma:
 
 $$\dot{x} = f(x)\$$
 
-onde $$\x = 0 \$$ é um ponto de equilíbrio (ou seja, $$\( f(0) = 0 \$$)) e  $$\( f \$$) é continuamente diferenciável.
+onde $$ x = 0 $$ é um ponto de equilíbrio (ou seja, $$ f(0) = 0 $$)) e  $$ f $$ é continuamente diferenciável.
 
 O **Método Indireto** consiste nos seguintes passos:
 
