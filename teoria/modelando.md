@@ -66,12 +66,9 @@ Onde:
 
 Substituindo $F_r$ nas equações, obtemos o sistema de duas EDOs de primeira ordem acopladas:
 
-$$
-\begin{aligned}
-\dot{V}_f &= -\frac{f_0 + f_1 V_f + f_2 V_f^2}{m} + \frac{1}{m} u \\[0.5ex]
-\dot{D} &= V_l - V_f
-\end{aligned} 
-$$
+$$ \dot{V}_f = -\frac{f_0 + f_1 V_f + f_2 V_f^2}{m} + \frac{1}{m} u $$
+
+$$ \dot{D} = V_l - V_f $$
 
 ## 6. Destrinchando as EDOs: Passo a Passo para Análise
 
