@@ -19,8 +19,8 @@ Aplicando a Segunda Lei de Newton na direção longitudinal do movimento, temos 
 $$ \sum F = m a = m \cdot \dot{V}_f  $$
 
 As forças atuantes são:
-1. **Força de Tração/Frenagem ($u$)**: Positiva para aceleração, negativa para frenagem.
-2. **Força de Arrasto Aerodinâmico ($F_r$)**: Sempre atua contra o movimento (sentido negativo).
+1. **Força de Tração/Frenagem ($u$)**: positiva para aceleração, negativa para frenagem.
+2. **Força de Arrasto Aerodinâmico ($F_r$)**: atua contra o movimento (sentido negativo).
 
 Consideramos também as seguintes variáveis exógenas e parâmetros:
 - **$V_l$** : Velocidade do veículo líder (m/s), a entrada externa (distúrbio).
