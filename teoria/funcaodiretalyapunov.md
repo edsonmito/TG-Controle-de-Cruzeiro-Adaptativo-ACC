@@ -1,6 +1,6 @@
 # Função Direta de Lyapunov
 
-## 1. O que é uma Função Direta de Lyapunov? (Estrutura Genérica)
+## 1. O que é uma Função de Lyapunov? (Estrutura Genérica)
 
 Analogamente ao conceito físico de **energia**, uma Função de Lyapunov $V(x)$ é uma construção matemática escalar utilizada para determinar a estabilidade de um sistema dinâmico sem a necessidade de resolver explicitamente suas equações diferenciais (que muitas vezes são não-lineares e impossíveis de resolver analiticamente). Em outras palavras, Lyapunov generalizou a ideia em que, em vez de "energia física", usamos uma função matemática $V(x)$ que se comporta como uma energia generalizada.
 
