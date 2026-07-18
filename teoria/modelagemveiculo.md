@@ -87,12 +87,12 @@ Onde:
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%3D%20%5Cnabla%20h%20%5Ccdot%20f(x)%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
 </div>
-
+<p>
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_gh%20%3D%20%5Cnabla%20h%20%5Ccdot%20g(x)%20%3D%20-%5Ctau_h">
 </div>
-
-*(Nota: Estes cálculos são exatamente os realizados pelo seu script `LIE_2026.m` quando ele executa `Lfhacc` e `Lghacc`).*
+<p>
+*(Nota: Estes cálculos são exatamente os realizados pelo script `LIE_2026.m` quando ele executa `Lfhacc` e `Lghacc`).*
 
 ### 3.2. Restrição de Segurança (CBF)
 
@@ -101,7 +101,7 @@ A condição para que a distância nunca se torne negativa (invariância do conj
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h(x)%20%5Cgeq%200">
 </div>
-
+<p>
 Onde:
 - $$( \gamma > 0 )$$: Parâmetro que ajusta a "agressividade" da barreira. Quanto maior, mais cedo o sistema começa a frear para evitar a violação da segurança.
 
