@@ -17,7 +17,6 @@ Além disso, consideramos as seguintes variáveis exógenas e parâmetros:
 - **$u$** : Força de tração/frenagem aplicada ao veículo ($N$) – esta é a nossa variável de controle.
 - **$m$** : Massa do veículo ($kg$).
 
----
 
 ## 2. Dinâmica da Velocidade ($\dot{V}_f$) - Segunda Lei de Newton
 
@@ -36,7 +35,6 @@ Isolando a derivada da velocidade (aceleração):
 
 $$ \dot{V}_f = -\frac{F_r(V_f)}{m} + \frac{1}{m} u $$
 
----
 
 ## 3. Dinâmica da Distância ($\dot{D}$) - Cinemática Relativa
 
@@ -49,7 +47,6 @@ A taxa de variação é simplesmente a diferença das velocidades:
 
 $$ \dot{D} = V_l - V_f $$
 
----
 
 ## 4. Modelagem da Força de Arrasto Aerodinâmica ($F_r$)
 
@@ -64,7 +61,6 @@ Onde:
 
 **Observação:** O termo $V_f^2$ é o grande responsável pela **não-linearidade** do sistema.
 
----
 
 ## 5. Sistema Completo de EDOs (Modelo no Espaço de Estados)
 
@@ -77,7 +73,6 @@ $$
 \end{cases} 
 $$
 
----
 
 ## 6. Destrinchando as EDOs: Passo a Passo para Análise
 
