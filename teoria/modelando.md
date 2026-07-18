@@ -12,7 +12,7 @@ Onde:
 - **$V_f$** : Velocidade longitudinal do veículo controlado (seguidor) em m/s.
 - **$D$** : Distância relativa entre o veículo seguidor e o veículo líder em m.
 
-## 2. Dinâmica da Velocidade ($\dot{V}_f$) - Segunda Lei de Newton
+## 2. Dinâmica da Velocidade ($\dot{V}_f$)
 
 Aplicando a Segunda Lei de Newton na direção longitudinal do movimento, temos que a massa vezes a aceleração é igual à soma das forças externas:
 
