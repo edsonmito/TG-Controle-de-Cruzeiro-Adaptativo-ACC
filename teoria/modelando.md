@@ -43,7 +43,7 @@ A distância entre os dois veículos varia conforme a diferença de velocidade e
 - Se $V_l > V_f$ (líder mais rápido), a distância $D$ aumenta ($\dot{D} > 0$).
 - Se $V_l < V_f$ (seguidor mais rápido), a distância $D$ diminui ($\dot{D} < 0$).
 
-A taxa de variação é simplesmente a diferença das velocidades:
+A taxa de variação é a diferença das velocidades:
 
 $$ \dot{D} = V_l - V_f $$
 
