@@ -2,7 +2,7 @@
 
 ## Objetivo da CLF
 
-O objetivo é mostrar como saímos do "erro de velocidade" e chegamos na restrição matemática que é implementada dentro do QP (Programação Quadrática). No contexto do ACC, o motorista estabelece uma velocidade desejada $V_d$ (ex: 80 km/h). O trabalho da CLF é garantir que a velocidade real do veículo $V_f$ **convirja** para essa velocidade $V_d$ de forma estável e suave, a menos que a segurança (CBF) impeça.
+O objetivo é mostrar como saímos do "erro de velocidade" e chegamos na restrição matemática que é implementada dentro do QP (Programação Quadrática). No contexto do ACC, o motorista estabelece uma velocidade desejada $V_d$ (ex: 80 km/h). O trabalho da CLF é garantir que a velocidade real do veículo $V_f$ **convirja** para essa velocidade desejada $V_d$ de forma estável e suave, a menos que a segurança (CBF) impeça.
 
 
 ## 1. Definindo o Erro de Rastreamento
