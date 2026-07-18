@@ -10,7 +10,7 @@ Assim, se conseguirmos mostrar que essa função é sempre positiva (exceto no p
 
 Considere um sistema não-linear autônomo na forma:
 
-![\dot{x} = f(x)](https://latex.codecogs.com/png.image?%5Cbg_white%20%5Cdot%7Bx%7D%20%3D%20f(x))
+![\dot{x} = f(x)](https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bx%7D%20%3D%20f(x))
 
 onde \( x = 0 \) é um ponto de equilíbrio (ou seja, \( f(0) = 0 \)) e \( f \) é continuamente diferenciável.
 
