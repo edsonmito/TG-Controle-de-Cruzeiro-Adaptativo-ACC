@@ -80,7 +80,7 @@ A segurança no ACC é definida pela manutenção de uma distância mínima em r
 </div>
 
 Onde:
-- \( \tau_h > 0 \): Tempo de headway desejado (ex: 1.8 segundos). Garante que a distância seja proporcional à velocidade.
+- $$( \tau_h > 0 )$$: Tempo de headway desejado (ex: 1.8 segundos). Garante que a distância seja proporcional à velocidade.
 
 ### 3.1. Derivadas de Lie da CBF
 
@@ -103,7 +103,7 @@ A condição para que a distância nunca se torne negativa (invariância do conj
 </div>
 
 Onde:
-- \( \gamma > 0 \): Parâmetro que ajusta a "agressividade" da barreira. Quanto maior, mais cedo o sistema começa a frear para evitar a violação da segurança.
+- $$( \gamma > 0 )$$: Parâmetro que ajusta a "agressividade" da barreira. Quanto maior, mais cedo o sistema começa a frear para evitar a violação da segurança.
 
 <a href="modelandocbf.md">Ver modelagem do CBF.</a>
 
