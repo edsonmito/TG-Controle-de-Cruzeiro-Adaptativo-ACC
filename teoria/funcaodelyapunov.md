@@ -17,7 +17,7 @@ onde $x = 0$ é um ponto de equilíbrio, uma função escalar continuasmente dif
 
 1. **Definida Positiva:** A "energia" deve ser zero no equilíbrio e estritamente positiva em qualquer outro lugar.
 
-$$V(0) = 0 \quad \text{e} \quad V(x) > 0 \quad \forall x \neq 0 (função definida positiva)$$
+$$V(0) = 0 \quad \text{e} \quad V(x) > 0 \quad \forall x \neq 0$$
 
 
 2. **Derivada Temporal Negativa (Semidefinida ou Definida):** A taxa de variação da "energia" ao longo das trajetórias do sistema deve ser decrescente (dissipação de energia).
