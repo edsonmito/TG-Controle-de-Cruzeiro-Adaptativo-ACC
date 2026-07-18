@@ -17,8 +17,11 @@ onde \( x = 0 \) é um ponto de equilíbrio (ou seja, \( f(0) = 0 \)) e \( f \) 
 O método consiste em:
 
 1.  **Linearizar o sistema** em torno do ponto de equilíbrio \( x = 0 \) usando a série de Taylor (desprezando termos de ordem superior):
+
     $$ \dot{x} \approx A \cdot x $$
+
     onde \( A \) é a **matriz Jacobiana** avaliada no ponto de equilíbrio:
+
     $$ A = \left. \frac{\partial f}{\partial x} \right|_{x = 0} $$
 
 2.  **Analisar os autovalores** (\( \lambda_i \)) da matriz \( A \).
