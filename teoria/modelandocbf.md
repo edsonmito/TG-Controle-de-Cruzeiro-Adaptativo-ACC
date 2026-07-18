@@ -39,8 +39,6 @@ Para estender essa condição para **todo o conjunto seguro** (e não só na bor
 - Se $$( h )$$ está grande (longe do perigo), $$( \dot{h} )$$ pode ser um pouco negativo (distância diminuindo), desde que $$( \gamma h )$$ compense isso.
 - Se $$( h )$$ está pequeno (perto do perigo), $$( \dot{h} )$$ **precisa ser positivo** (a distância precisa estar aumentando, ou seja, o carro está freando para abrir espaço).
 
----
-
 ## 3. Aplicando a Regra da Cadeia
 
 Para o QP usar essa restrição, precisamos explicitar o controle $$( u )$$ em $$( \dot{h} )$$. Aplicamos a Regra da Cadeia:
@@ -55,11 +53,9 @@ Substituindo as derivadas parciais de $$( h = D - \tau_h V_f )$$ e as dinâmicas
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)%20-%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7B1%7D%7Bm%7D%20u">
 </div>
 
----
+## 4. Extraindo as Derivadas de Lie da CBF ($$ L_fh $$ e $$ L_gh $$)
 
-## 4. Extraindo as Derivadas de Lie da CBF ($$( L_fh )$$ e $$( L_gh )$$)
-
-Para encaixar no QP, separamos o que independe do controle ( $$( L_fh )$$ ) e o que multiplica $$( u )$$ ( $$( L_gh )$$ ).
+Para encaixar no QP, separamos o que independe do controle ( $$ L_fh $$ ) e o que multiplica $$( u )$$ ( $$ L_gh $$ ).
 
 **1. Derivada de Lie em relação a f (parte natural da dinâmica):**
 <div align="center">
@@ -71,28 +67,26 @@ Para encaixar no QP, separamos o que independe do controle ( $$( L_fh )$$ ) e o 
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_gh%20%3D%20-%5Ctau_h">
 </div>
 
----
+## 5. A Restrição da CBF no QP (A Desigualdade ($$ \geq ) $$)
 
-## Passo 5: A Restrição da CBF no QP (A Desigualdade \( \geq \) )
-
-Substituindo \( \dot{h} = L_fh + L_gh \cdot u \) na condição de invariância, obtemos a restrição final que será usada no QP:
+Substituindo $$( \dot{h} = L_fh + L_gh \cdot u )$$ na condição de invariância, obtemos a restrição final que será usada no QP:
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
 </div>
 
 **Perceba a diferença fundamental da CLF:**
-- **CLF**: \( L_fV + L_gV \cdot u \leq -c_V V + \delta \) (queremos ser **menores ou iguais** a zero para estabilidade).
-- **CBF**: \( L_fh + L_gh \cdot u + \gamma h \geq 0 \) (queremos ser **maiores ou iguais** a zero para segurança).
+- **CLF**: $$( L_fV + L_gV \cdot u \leq -c_V V + \delta )$$ (queremos ser **menores ou iguais** a zero para estabilidade).
+- **CBF**: $$( L_fh + L_gh \cdot u + \gamma h \geq 0 )$$ (queremos ser **maiores ou iguais** a zero para segurança).
 
 ---
 
-## Passo 6: O Parâmetro \( \gamma \) (O "Gatilho" da Segurança)
+## 6. O Parâmetro $$( \gamma )$$ (O "Gatilho" da Segurança)
 
-Assim como \( c_V \) define a agressividade da CLF, \( \gamma \) define a "sensibilidade" da CBF.
+Assim como $$( c_V )$$ define a agressividade da CLF, $$( \gamma )$$ define a "sensibilidade" da CBF.
 
-- **\( \gamma \) alto**: O carro começa a frear **muito antes** de chegar perto do carro da frente. A segurança é priorizada, mas o carro pode ser excessivamente cauteloso, irritando os motoristas de trás.
-- **\( \gamma \) baixo**: O carro só freia no **último segundo** possível. A segurança ainda é garantida, mas a frenagem será muito brusca (desconfortável e perigosa para o carro de trás).
+- **$$( \gamma )$$ alto**: O carro começa a frear **muito antes** de chegar perto do carro da frente. A segurança é priorizada, mas o carro pode ser excessivamente cauteloso, irritando os motoristas de trás.
+- **$$( \gamma )$$ baixo**: O carro só freia no **último segundo** possível. A segurança ainda é garantida, mas a frenagem será muito brusca (desconfortável e perigosa para o carro de trás).
 - **Valor típico na literatura**: Geralmente entre 1 e 5, ajustado para equilibrar conforto e segurança.
 
 ---
