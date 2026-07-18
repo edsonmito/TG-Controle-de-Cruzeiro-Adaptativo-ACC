@@ -29,7 +29,17 @@ $$\dot{V}(x) = \frac{\partial V}{\partial x}\dot{x} = \frac{\partial V}{\partial
 * Se $\dot{V}(x) < 0$ (Definida Negativa): O sistema é **Assintoticamente Estável** (a energia decai até zero, forçando o estado $x(t)$ a retornar exatamente para o ponto de equilíbrio $0$).
 * Se $\dot{V}(x) > 0$: O sistema é Instável.
 
-## 3. Exemplo simples
+## 3. Por que é "direto"?
+
+Porque não exige integrar as equações de movimento — daí o nome "método direto", em oposição ao "primeiro método" (ou indireto), que envolve linearizar o sistema e analisar autovalores.
+
+### O desafio prático
+
+O maior problema é que **não há uma receita geral** para encontrar V(x). É preciso "adivinhar" ou construir uma função candidata (muitas vezes baseada em energia física, formas quadráticas, etc.) e depois verificar se ela satisfaz as condições. Se uma tentativa falhar, isso não prova instabilidade — só significa que essa função não serviu.
+
+
+
+## 4. Exemplo simples
 
 Sistema: $\dot{x} = -x^3$
 
@@ -40,16 +50,8 @@ $$\dot{V}(x) = 2x \cdot \dot{x} = 2x \cdot (-x^3) = -2x^4$$
 
 Como $-2x^4 < 0$ para todo x ≠ 0, concluímos que o equilíbrio x = 0 é **assintoticamente estável** — e chegámos a essa conclusão sem resolver a equação diferencial!
 
-## Por que é "direto"?
 
-Porque não exige integrar as equações de movimento — daí o nome "método direto", em oposição ao "primeiro método" (ou indireto), que envolve linearizar o sistema e analisar autovalores.
-
-## O desafio prático
-
-O maior problema é que **não há uma receita geral** para encontrar V(x). É preciso "adivinhar" ou construir uma função candidata (muitas vezes baseada em energia física, formas quadráticas, etc.) e depois verificar se ela satisfaz as condições. Se uma tentativa falhar, isso não prova instabilidade — só significa que essa função não serviu.
-
-
-## 4. Implementações e Evoluções na Teoria de Controle
+## 5. Implementações e Evoluções na Teoria de Controle
 
 Ao longo das décadas, o conceito original de Lyapunov (que servia apenas para *analisar* se um sistema já existente era estável) foi estendido para o *projeto e síntese* de controladores ativos. Algumas das implementações teóricas mais importantes e utilizadas na engenharia de controle são:
 
