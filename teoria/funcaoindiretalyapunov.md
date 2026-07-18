@@ -19,11 +19,15 @@ O método consiste em:
 
 1.  **Linearizar o sistema** em torno do ponto de equilíbrio `x = 0` usando a série de Taylor (desprezando termos de ordem superior):
   
-    ![\color{white} \dot{x} \approx A \cdot x](https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bx%7D%20%5Capprox%20A%20%5Ccdot%20x)
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bx%7D%20%5Capprox%20A%20%5Ccdot%20x">
+</div>
 
     onde `A` é a **matriz Jacobiana** avaliada no ponto de equilíbrio:
 
-    ![\color{white} A = \left. \frac{\partial f}{\partial x} \right|_{x = 0}](https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20A%20%3D%20%5Cleft.%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D%20%5Cright%7C_%7Bx%20%3D%200%7D)
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20A%20%3D%20%5Cleft.%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D%20%5Cright%7C_%7Bx%20%3D%200%7D">
+</div>
 
 2.  **Analisar os autovalores** (`λ_i`) da matriz `A`.
 
