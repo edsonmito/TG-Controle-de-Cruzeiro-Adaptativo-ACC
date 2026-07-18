@@ -17,13 +17,16 @@ onde `x = 0` é um ponto de equilíbrio (ou seja, `f(0) = 0`) e `f` é continuam
 O método consiste em:
 
 1.  **Linearizar o sistema** em torno do ponto de equilíbrio `x = 0` usando a série de Taylor (desprezando termos de ordem superior):
+2.  
     ![\color{white} \dot{x} \approx A \cdot x](https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bx%7D%20%5Capprox%20A%20%5Ccdot%20x)
+
     onde `A` é a **matriz Jacobiana** avaliada no ponto de equilíbrio:
+
     ![\color{white} A = \left. \frac{\partial f}{\partial x} \right|_{x = 0}](https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20A%20%3D%20%5Cleft.%20%5Cfrac%7B%5Cpartial%20f%7D%7B%5Cpartial%20x%7D%20%5Cright%7C_%7Bx%20%3D%200%7D)
 
-2.  **Analisar os autovalores** (`λ_i`) da matriz `A`.
+4.  **Analisar os autovalores** (`λ_i`) da matriz `A`.
 
-3.  **Teorema (Lyapunov)**:
+5.  **Teorema (Lyapunov)**:
     - Se **todos** os autovalores de `A` têm **parte real estritamente negativa** (`Re(λ_i) < 0`), então o ponto de equilíbrio `x = 0` do sistema não-linear original é **assintoticamente estável**.
     - Se **pelo menos um** autovalor tem **parte real positiva** (`Re(λ_i) > 0`), o sistema é **instável**.
     - Se os autovalores têm parte real **zero**, o método é **inconclusivo** (depende das não-linearidades de ordem superior).
