@@ -98,7 +98,7 @@ Substituindo $\dot{V}$ pela forma $L_fV + L_gV \cdot u$, obtemos a **restrição
 Onde $c_V > 0$ é a **taxa de convergência**. Quanto maior o $c_V$, mais rápido o carro acelera/freia para atingir a velocidade desejada, e quanto menor o $c_V$, a aceleração é mais lenta. A taxa de convergência deve ser configurada para encontrar um valor intermediário. 
 
 
-## Passo 6: A Relaxação ($\delta$) - O Compromisso com a Segurança
+## 6. A Relaxação ($\delta$), e sua relação com a segurança
 
 Se a restrição acima for muito rígida, pode não existir solução quando a segurança (CBF) exigir frenagem forte. Para resolver isso, a teoria introduz a **variável de relaxação ($\delta$)**, transformando a restrição em:
 
