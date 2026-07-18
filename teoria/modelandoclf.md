@@ -12,7 +12,7 @@ O primeiro passo para construir qualquer função de Lyapunov para rastreamento 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20e%20%3D%20V_f%20-%20V_d">
 </div>
-
+<p>
 Se conseguirmos fazer com que $e \to 0$, o carro atingiu a velocidade desejada.
 
 
