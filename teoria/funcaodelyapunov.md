@@ -6,6 +6,8 @@ Analogamente ao conceito físico de **energia**, uma Função de Lyapunov $V(x)$
 
 Assim, se conseguirmos mostrar que essa função é sempre positiva (exceto no ponto de equilíbrio, onde é zero), e Diminui continuamente ao longo das trajetórias do sistema, então podemos concluir que o sistema é estável, sem precisar resolver a equação diferencial.
 
+## Definição formal:
+
 Para um sistema dinâmico autônomo descrito por:
 
 $$\dot{x} = f(x), \quad f(0) = 0$$
