@@ -25,7 +25,7 @@ A função que define a fronteira da segurança no ACC é a distância relativa 
 - Se $(h(x) = 0)$: Estamos no limite da segurança (fronteira).
 - Se $(h(x) < 0)$: Violamos a segurança (colisão ou distância perigosa).
 
-## 2. A Condição de Invariância
+## 2. A Condição de Invariância do Conjunto Seguro
 
 Para garantir que o carro **nunca** saia da região segura $( h < 0 )$, a teoria da CBF (baseada no Teorema de Nagumo) exige que, quando o carro estiver na fronteira $( h = 0 )$, a derivada de $( h )$ não pode ser negativa (ou seja, não pode estar diminuindo ainda mais).
 
