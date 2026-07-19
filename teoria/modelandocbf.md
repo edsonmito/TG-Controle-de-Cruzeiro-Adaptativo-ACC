@@ -35,6 +35,8 @@ Para estender essa condição para **todo o conjunto seguro** (e não só na bor
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%2B%20%5Cgamma%20%5Ccdot%20h%20%5Cgeq%200">
 </div>
 
+Onde $\gamma$ é a taxa de decaimento máxima permitida, e $h$ a função de barreira. 
+
 **Interpretação Física:**
 - Se $$( h )$$ está grande (longe do perigo), $$( \dot{h} )$$ pode ser um pouco negativo (distância diminuindo), desde que $$( \gamma h )$$ compense isso.
 - Se $$( h )$$ está pequeno (perto do perigo), $$( \dot{h} )$$ **precisa ser positivo** (a distância precisa estar aumentando, ou seja, o carro está freando para abrir espaço).
