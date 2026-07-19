@@ -2,7 +2,6 @@
 
 Este documento descreve como os arquivos do projeto se relacionam durante a simulação do ACC (CLF-CBF-QP), lista todos os parâmetros de projeto disponíveis e explica como o ajuste de cada um afeta o comportamento e a performance do sistema.
 
----
 
 ## 1. Visão Geral da Arquitetura
 
@@ -63,7 +62,6 @@ flowchart TB
 > - **Comentada:** CLF-CBF-QP completo (CLF suave + CBF rígida, como nos slides).
 > - **Ativa (`cbfacc_ativ = 1`):** um controlador proporcional nominal (`unom = k·(Vd − Vf)`) **filtrado** por uma CBF — essa é a arquitetura de *Active Set Invariance Filter (ASIF)*, também descrita em Ames et al. (2017) e nos slides que geramos. É essa versão que produziu os resultados que analisamos (incluindo a violação `min(hacc) = −4.2852`).
 
----
 
 ## 2. Dicionário de Parâmetros
 
@@ -106,7 +104,6 @@ flowchart TB
 |---|---|---|---|
 | $a_{max}$ | linhas `A=[...;1;-1]`, `b=[...;2.0;2.0]` | ±2.0 m/s² | **Foi a fonte do conflito identificado** (`min(hacc) = −4.2852`) quando ativada junto com a CBF sem uma barreira unificada $h_F$ |
 
----
 
 ## 3. Fluxo de Decisão a Cada Instante de Tempo
 
@@ -137,7 +134,6 @@ flowchart TD
     style SAFE fill:#2A9D8F,color:#fff
 ```
 
----
 
 ## 4. Como Cada Parâmetro Afeta a Performance
 
@@ -170,7 +166,6 @@ flowchart TD
 ### `Vf0`, `D0` — Condições iniciais
 - Não são parâmetros de sintonia do controlador, mas **definem o ponto de partida em relação à fronteira do conjunto seguro**. Se `D0` for pequeno demais em relação a `Vf0` e `Td` (ex: `D0 < Td·Vf0`), a simulação já começa fora — ou muito perto da borda — do conjunto seguro, forçando frenagem imediata e intensa nos primeiros instantes.
 
----
 
 ## 5. Tabela-Resumo: "O que mexer para..."
 
@@ -183,7 +178,6 @@ flowchart TD
 | Elimine o conflito CBF × conforto (correção estrutural) | Implementar `hF` (barreira unificada) | — |
 | Teste apenas o comportamento nominal, sem segurança | `cbfacc_ativ` | Definir `0` |
 
----
 
 ## 6. Referências
 
