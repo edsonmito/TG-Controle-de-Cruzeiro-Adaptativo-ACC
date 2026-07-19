@@ -11,8 +11,6 @@ A cada instante de tempo, o QP recebe:
 
 O QP deve encontrar um valor para **$$( u )$$ (aceleração)** e para **$$( \delta )$$ (relaxação)** que minimize uma função de custo, respeitando as duas restrições.
 
----
-
 ## 2. As Variáveis do QP
 
 O QP resolve um problema de otimização com duas variáveis de decisão:
@@ -25,8 +23,6 @@ Onde:
 - **$$( u )$$** = Aceleração/frenagem comandada (m/s²).
 - **$$( \delta )$$** = Relaxação da CLF (adimensional). Quanto maior, mais a CLF é "ignorada".
 
----
-
 ## 3. A Função de Custo (O que o QP minimiza?)
 
 O QP minimiza a seguinte função custo quadrática:
@@ -38,8 +34,6 @@ O QP minimiza a seguinte função custo quadrática:
 **Interpretação:**
 - **$$( \frac{1}{2} u^2 )$$**: Penaliza acelerações/frenagens muito fortes (conforto e eficiência).
 - **$$( p_\delta \delta^2 )$$**: Penaliza a relaxação da CLF. O peso $$( p_\delta )$$ é altíssimo (ex: $$( 10^5 )$$), então o QP **odeia** usar $$( \delta > 0 )$$. Só usa em emergências.
-
----
 
 ## 4. As Restrições (As "Regras do Jogo")
 
@@ -77,8 +71,6 @@ Reescrevendo para encaixar no formato $$( A z \leq b )$$ (multiplicando por -1 p
 
 **Linha da CBF na matriz $$( A )$$:** $$( [-L_gh, \ 0] )$$
 
----
-
 ## 5. O Sistema Completo (Forma Matricial $$( Az \leq b )$$)
 
 Juntando tudo, o QP resolve o seguinte problema a cada iteração:
@@ -93,21 +85,18 @@ Sujeito a:
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cbegin%7Bbmatrix%7D%20L_gV%20%26%20-1%20%5C%5C%20-L_gh%20%26%200%20%5Cend%7Bbmatrix%7D%20%5Cbegin%7Bbmatrix%7D%20u%20%5C%5C%20%5Cdelta%20%5Cend%7Bbmatrix%7D%20%5Cleq%20%5Cbegin%7Bbmatrix%7D%20-L_fV%20-%20c_V%20V%20%5C%5C%20L_fh%20%2B%20%5Cgamma%20h%20%5Cend%7Bbmatrix%7D">
 </div>
 
----
-
 ## 6. Como o QP "Medeia" o Conflito? (A Mecânica da Decisão)
 
 O QP analisa as duas restrições e toma a decisão em 3 passos:
 
-1.  **Tenta $$( \delta = 0 )$$**: O QP primeiro verifica se existe algum $$( u )$$ que satisfaça **ambas** as restrições com $$( \delta = 0 )$$. Se existir, ótimo! A CLF é respeitada integralmente, e o carro acelera/freia para seguir \( V_d \) sem relaxação.
+1.  **Tenta $$( \delta = 0 )$$**: O QP primeiro verifica se existe algum $$( u )$$ que satisfaça **ambas** as restrições com $$( \delta = 0 )$$. Se existir, ótimo! A CLF é respeitada integralmente, e o carro acelera/freia para seguir $$( V_d )$$ sem relaxação.
 
-2.  **Conflito (A CBF Vence)**: Se não existe \( u \) que satisfaça as duas ao mesmo tempo (ex: a CLF quer acelerar, mas a CBF exige frenagem forte), o QP **aumenta o valor de \( \delta \)**. Isso "alivia" a restrição da CLF (o lado direito fica menos negativo ou positivo), permitindo que o QP escolha um \( u \) que satisfaça a CBF.
+2.  **Conflito (A CBF Vence)**: Se não existe $$( u )$$ que satisfaça as duas ao mesmo tempo (ex: a CLF quer acelerar, mas a CBF exige frenagem forte), o QP **aumenta o valor de $$( \delta )$$**. Isso "alivia" a restrição da CLF (o lado direito fica menos negativo ou positivo), permitindo que o QP escolha um $$( u )$$ que satisfaça a CBF.
 
-3.  **O \( \delta \) é penalizado**: Como \( p_\delta \) é altíssimo, o QP calcula o **menor \( \delta \) possível** que ainda permite satisfazer a CBF. Assim que o perigo passa, o QP reduz \( \delta \) a zero.
+3.  **O $$( \delta )$$ é penalizado**: Como $$( p_\delta )$$ é altíssimo, o QP calcula o **menor $$( \delta )$$ possível** que ainda permite satisfazer a CBF. Assim que o perigo passa, o QP reduz $$( \delta )$$ a zero.
 
-**Geometricamente:** O QP encontra o ponto mais próximo da origem (no espaço \( u \times \delta \)) que ainda está dentro da região viável definida pelas duas retas (restrições).
+**Geometricamente:** O QP encontra o ponto mais próximo da origem (no espaço $$( u \times \delta )$$) que ainda está dentro da região viável definida pelas duas retas (restrições).
 
----
 
 ## 7. Conexão com seu Código (`QPhild.m` e Simulink)
 
@@ -115,20 +104,23 @@ No seu bloco `CLF_CBF_QP` do Simulink, você monta as matrizes:
 
 | Variável | O que contém | De onde vem |
 | :--- | :--- | :--- |
-| **\( H \)** | \( [1, 0; 0, p_\delta] \) | Parâmetros do projeto. |
-| **\( f \)** | \( [0, 0]^T \) (ou vetor de custo linear) | Geralmente zero para ACC básico. |
-| **\( A \)** | \( [L_gV, -1; -L_gh, 0] \) | Do `LIE_2026.m`. |
-| **\( b \)** | \( [-L_fV - c_V V; L_fh + \gamma h] \) | Do `LIE_2026.m`. |
+| **$$( H )$$** | $$( [1, 0; 0, p_\delta] )$$ | Parâmetros do projeto. |
+| **$$( f )$$** | $$( [0, 0]^T )$$ (ou vetor de custo linear) | Geralmente zero para ACC básico. |
+| **$$( A )$$** | $$( [L_gV, -1; -L_gh, 0] )$$ | Do `LIE_2026.m`. |
+| **$$( b )$$** | $$( [-L_fV - c_V V; L_fh + \gamma h] )$$ | Do `LIE_2026.m`. |
 
-E chama o `QPhild.m`, que resolve este sistema \( Az \leq b \) usando o algoritmo de Hildreth, retornando \( u \) e \( \delta \).
-
----
+E chama o `QPhild.m`, que resolve este sistema $$( Az \leq b )$$ usando o algoritmo de Hildreth, retornando $$( u )$$ e $$( \delta )$$.
 
 ## 8. Conclusão
 
-"O QP atua como um mecanismo de mediação entre a CLF e a CBF, resolvendo um problema de otimização quadrática que minimiza o esforço de controle (\( u^2 \)) e a relaxação da CLF (\( \delta^2 \)). As restrições da CLF e da CBF são formuladas como desigualdades lineares afins em \( u \), resultando em um problema convexo de rápida solução. Quando as restrições entram em conflito, o QP prioriza a CBF (rígida) e eleva o valor de \( \delta \) (relaxação da CLF) apenas o suficiente para garantir a factibilidade. Esta estrutura garante que a segurança nunca seja violada, enquanto o desempenho é otimizado sempre que possível."
+"O QP atua como um mecanismo de mediação entre a CLF e a CBF, resolvendo um problema de otimização quadrática que minimiza o esforço de controle ($$( u^2 )$$) e a relaxação da CLF ($$( \delta^2 )$$). As restrições da CLF e da CBF são formuladas como desigualdades lineares afins em $$( u )$$, resultando em um problema convexo de rápida solução. Quando as restrições entram em conflito, o QP prioriza a CBF (rígida) e eleva o valor de $$( \delta )$$ (relaxação da CLF) apenas o suficiente para garantir a factibilidade. Esta estrutura garante que a segurança nunca seja violada, enquanto o desempenho é otimizado sempre que possível."
 
 **Agora você tem o quadro completo:** 
 - CLF puxa para frente (desempenho). 
 - CBF segura para trás (segurança). 
-- QP é o juiz que calcula o equilíbrio perfeito a cada milésimo de segundo, usando \( \delta \) como o "termo de ajuste" para evitar que o problema fique sem solução.
+- QP é o juiz que calcula o equilíbrio perfeito a cada milésimo de segundo, usando $$( \delta $$) como o "termo de ajuste" para evitar que o problema fique sem solução.
+
+
+
+
+
