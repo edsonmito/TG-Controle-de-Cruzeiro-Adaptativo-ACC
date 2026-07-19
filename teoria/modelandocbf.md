@@ -29,7 +29,7 @@ A função que define a fronteira da segurança no ACC é a distância relativa 
 
 Para garantir que o carro **nunca** saia da região segura $( h < 0 )$, a teoria da CBF (baseada no Teorema de Nagumo) exige que, quando o carro estiver na fronteira $( h = 0 )$, a derivada de $( h )$ não pode ser negativa (ou seja, não pode estar diminuindo ainda mais).
 
-Vale ressaltar que se você só olhar para \( h \) como critério de segurança, quando \( h = 0 \) você já colidiu. Mas se você olhar para \( \dot{h} \), você pode calcular a frenagem necessária para **impedir** que \( h \) chegue a zero no futuro.
+Vale ressaltar que se você só olhar para $( h )$ como critério de segurança, quando $( h = 0 )$ você já colidiu. Mas se você olhar para $( \dot{h} )$, você pode calcular a frenagem necessária para **impedir** que $( h )$ chegue a zero no futuro.
 
 Para estender essa condição para **todo o conjunto seguro** (e não só na borda), a teoria usa a seguinte desigualdade:
 
