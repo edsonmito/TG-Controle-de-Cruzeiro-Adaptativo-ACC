@@ -138,7 +138,6 @@ Onde:
 - $$( H )$$: Matriz de ponderação do controle (ex: $$( H = 1/m^2 )$$ para minimizar o esforço de força).
 - $$( p_\delta )$$: Peso da relaxação (deve ser um valor alto, ex: $$( 10^5 )$$, para que o QP só use $$( \delta > 0 )$$ em emergências).
 
----
 
 ## 5. Interpretação Física do Sistema de Equações
 
