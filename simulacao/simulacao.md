@@ -2,6 +2,7 @@
 
 Este documento descreve como os arquivos do projeto se relacionam durante a simulação do ACC (CLF-CBF-QP), lista todos os parâmetros de projeto disponíveis e explica como o ajuste de cada um afeta o comportamento e a performance do sistema.
 
+---
 
 ## 1. Visão Geral da Arquitetura
 
@@ -58,10 +59,64 @@ flowchart TB
 | `QPhild.m` | Resolve analiticamente o problema de Programação Quadrática via algoritmo de Hildreth, sem depender do `quadprog` nativo. | Chamada de dentro do `fcn`, a cada passo |
 | `INIT_ACC_2026.m` (ou comandos manuais no workspace) | Define as condições iniciais (`Vf0`, `D0`), aciona a simulação e gera os gráficos. | Antes e depois da simulação |
 
-> **Nota importante sobre o `fcn` atual:** o arquivo contém **duas formulações** de controlador, uma comentada e outra ativa:
-> - **Comentada:** CLF-CBF-QP completo (CLF suave + CBF rígida, como nos slides).
-> - **Ativa (`cbfacc_ativ = 1`):** um controlador proporcional nominal (`unom = k·(Vd − Vf)`) **filtrado** por uma CBF — essa é a arquitetura de *Active Set Invariance Filter (ASIF)*, também descrita em Ames et al. (2017) e nos slides que geramos. É essa versão que produziu os resultados que analisamos (incluindo a violação `min(hacc) = −4.2852`).
+> **Nota importante sobre o `fcn` atual:** o arquivo contém **duas formulações** de controlador, uma comentada e outra ativa. Elas não são pequenas variações uma da outra — são duas filosofias de controle diferentes. A seção 1.1 detalha essa diferença.
 
+---
+
+### 1.1 Duas Arquiteturas de Controle no Mesmo Arquivo
+
+O `fcn` guarda, lado a lado, duas implementações possíveis. Só uma está ativa por vez (a segunda, atualmente). É essencial não confundi-las: os resultados simulados e o achado `min(hacc) = −4.2852` vêm **exclusivamente** da arquitetura ativa (Filtro de Segurança), não da CLF-CBF-QP completa.
+
+### 1.1.1 Comparação estrutural
+
+| Aspecto | **CLF-CBF-QP completo** (comentado) | **Filtro Nominal + CBF** (ativo) |
+|---|---|---|
+| Variáveis de decisão do QP | `u` **e** `δ` (2 variáveis) | Só `u` (1 variável) |
+| Restrições no QP | CLF (suave, com folga `δ`) **+** CBF (rígida) | Só CBF (rígida) |
+| Como `Vd` é perseguido | **Dentro** do QP, como restrição CLF | **Fora** do QP — por um controlador P simples (`unom = k·(Vd−Vf)`) calculado *antes* de chamar o QP |
+| O que o QP minimiza | Esforço de controle bruto: $\mu^T\mu$ | Distância até `unom`: $(u-u_{nom})^2$ |
+| Variável de folga $\delta$ | Existe — relaxa a CLF quando há conflito com a CBF | Não existe — não há CLF para relaxar |
+| Garantia de convergência a `Vd` | **Formal**, decorre do teorema de estabilidade da CLF | **Nenhuma** — depende inteiramente da escolha (arbitrária) de `unom` |
+| Garantia de segurança (CBF) | Idêntica nos dois casos — mesma matemática de invariância do conjunto seguro | Idêntica |
+| Nome na literatura | CLF-CBF-QP (Ames et al., 2014; 2017) | *Safety Filter* / **ASIF** — Active Set Invariance Filter (Gurriet et al., 2018; citado em Ames et al., 2019, Fig. 4) |
+| Variáveis no código | `Vacc`, `psc`, `c`, `A=[LgVacc -1; -Lghacc 0]` | `unom`, `k`, `A=[-Lghacc]` |
+
+### 1.1.2 A diferença em uma linha
+
+```
+CLF-CBF-QP completo:   [Objetivo de velocidade + Segurança]  →  QP  →  u*
+Filtro ativo (ASIF):   [Objetivo de velocidade]  →  u_nom  →  [Segurança]  →  QP  →  u*
+```
+
+Na primeira, o controlador **nasce dentro** da otimização: não existe nenhum `u` calculado previamente, o QP decide tudo de uma vez, balanceando velocidade e segurança simultaneamente. Na segunda, o QP **não sabe nada sobre `Vd`** — ele só recebe um pedido de controle já pronto (`unom`) e pergunta "isso é seguro? Se não for, qual é o `u` mais próximo dele que é seguro?". A CBF nunca empurra o sistema *em direção* a `Vd`; ela só *filtra* o que o controlador nominal pediu.
+
+```mermaid
+flowchart LR
+    subgraph COMPLETA["CLF-CBF-QP completo"]
+        direction TB
+        A1["Vf, xr, Vl, Vd"] --> A2["QP:<br/>min ½uᵀHu + Fᵀu<br/>s.a. CLF(δ) e CBF"]
+        A2 --> A3["u* — já é o controlador final"]
+    end
+    subgraph FILTRO["Filtro Nominal + CBF (ativo)"]
+        direction TB
+        B1["Vf, Vd"] --> B2["Controlador P nominal<br/>unom = k·(Vd−Vf)"]
+        B1b["Vf, xr, Vl"] --> B3["QP:<br/>min (u−unom)²<br/>s.a. CBF"]
+        B2 --> B3
+        B3 --> B4["u* — versão 'segura' de unom"]
+    end
+    style COMPLETA fill:#E8EEF5,stroke:#0B2545
+    style FILTRO fill:#0B2545,stroke:#0B2545,color:#fff
+    style B3 fill:#EE6C4D,color:#fff
+    style A2 fill:#EE6C4D,color:#fff
+```
+
+### 1.1.3 Por que essa diferença importa para o TG
+
+- **Consistência teórica ↔ prática:** os slides e a formulação matemática apresentada (com CLF suave + `δ`) descrevem o **CLF-CBF-QP completo**. Os gráficos e o achado do `min(hacc) = −4.2852`, porém, vêm da arquitetura **ASIF**. É importante deixar essa distinção explícita no texto do TG, para não parecer inconsistência entre teoria e resultados.
+- **A ausência de `δ` não é o problema da violação.** O conflito CBF × conforto (Seção 4) ocorre em **ambas** as arquiteturas — ele é uma propriedade da CBF isolada frente aos limites de força, não uma consequência de usar ou não a CLF.
+- **Qual escolher para o TG:** a arquitetura ASIF é mais simples de justificar teoricamente (é literalmente "pegue qualquer controlador e torne-o seguro"), mas abre mão da garantia formal de desempenho. Se o objetivo do trabalho é demonstrar a **unificação** de desempenho e segurança (o que os slides enfatizam), a versão completa é a mais fiel ao referencial teórico — vale considerar reativá-la para a versão final dos resultados.
+
+---
 
 ## 2. Dicionário de Parâmetros
 
@@ -104,6 +159,7 @@ flowchart TB
 |---|---|---|---|
 | $a_{max}$ | linhas `A=[...;1;-1]`, `b=[...;2.0;2.0]` | ±2.0 m/s² | **Foi a fonte do conflito identificado** (`min(hacc) = −4.2852`) quando ativada junto com a CBF sem uma barreira unificada $h_F$ |
 
+---
 
 ## 3. Fluxo de Decisão a Cada Instante de Tempo
 
@@ -134,6 +190,7 @@ flowchart TD
     style SAFE fill:#2A9D8F,color:#fff
 ```
 
+---
 
 ## 4. Como Cada Parâmetro Afeta a Performance
 
@@ -166,6 +223,7 @@ flowchart TD
 ### `Vf0`, `D0` — Condições iniciais
 - Não são parâmetros de sintonia do controlador, mas **definem o ponto de partida em relação à fronteira do conjunto seguro**. Se `D0` for pequeno demais em relação a `Vf0` e `Td` (ex: `D0 < Td·Vf0`), a simulação já começa fora — ou muito perto da borda — do conjunto seguro, forçando frenagem imediata e intensa nos primeiros instantes.
 
+---
 
 ## 5. Tabela-Resumo: "O que mexer para..."
 
@@ -178,6 +236,7 @@ flowchart TD
 | Elimine o conflito CBF × conforto (correção estrutural) | Implementar `hF` (barreira unificada) | — |
 | Teste apenas o comportamento nominal, sem segurança | `cbfacc_ativ` | Definir `0` |
 
+---
 
 ## 6. Referências
 
