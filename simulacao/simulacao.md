@@ -2,7 +2,6 @@
 
 Este documento descreve como os arquivos do projeto se relacionam durante a simulação do ACC (CLF-CBF-QP), lista todos os parâmetros de projeto disponíveis e explica como o ajuste de cada um afeta o comportamento e a performance do sistema.
 
----
 
 ## 1. Visão Geral da Arquitetura
 
@@ -61,7 +60,6 @@ flowchart TB
 
 > **Nota importante sobre o `fcn` atual:** o arquivo contém **duas formulações** de controlador, uma comentada e outra ativa. Elas não são pequenas variações uma da outra — são duas filosofias de controle diferentes. A seção 1.1 detalha essa diferença.
 
----
 
 ### 1.1 Duas Arquiteturas de Controle no Mesmo Arquivo
 
@@ -116,7 +114,6 @@ flowchart LR
 - **A ausência de `δ` não é o problema da violação.** O conflito CBF × conforto (Seção 4) ocorre em **ambas** as arquiteturas — ele é uma propriedade da CBF isolada frente aos limites de força, não uma consequência de usar ou não a CLF.
 - **Qual escolher para o TG:** a arquitetura ASIF é mais simples de justificar teoricamente (é literalmente "pegue qualquer controlador e torne-o seguro"), mas abre mão da garantia formal de desempenho. Se o objetivo do trabalho é demonstrar a **unificação** de desempenho e segurança (o que os slides enfatizam), a versão completa é a mais fiel ao referencial teórico — vale considerar reativá-la para a versão final dos resultados.
 
----
 
 ## 2. Dicionário de Parâmetros
 
@@ -159,7 +156,6 @@ flowchart LR
 |---|---|---|---|
 | $a_{max}$ | linhas `A=[...;1;-1]`, `b=[...;2.0;2.0]` | ±2.0 m/s² | **Foi a fonte do conflito identificado** (`min(hacc) = −4.2852`) quando ativada junto com a CBF sem uma barreira unificada $h_F$ |
 
----
 
 ## 3. Fluxo de Decisão a Cada Instante de Tempo
 
@@ -190,7 +186,6 @@ flowchart TD
     style SAFE fill:#2A9D8F,color:#fff
 ```
 
----
 
 ## 4. Como Cada Parâmetro Afeta a Performance
 
@@ -223,7 +218,6 @@ flowchart TD
 ### `Vf0`, `D0` — Condições iniciais
 - Não são parâmetros de sintonia do controlador, mas **definem o ponto de partida em relação à fronteira do conjunto seguro**. Se `D0` for pequeno demais em relação a `Vf0` e `Td` (ex: `D0 < Td·Vf0`), a simulação já começa fora — ou muito perto da borda — do conjunto seguro, forçando frenagem imediata e intensa nos primeiros instantes.
 
----
 
 ## 5. Tabela-Resumo: "O que mexer para..."
 
@@ -236,10 +230,15 @@ flowchart TD
 | Elimine o conflito CBF × conforto (correção estrutural) | Implementar `hF` (barreira unificada) | — |
 | Teste apenas o comportamento nominal, sem segurança | `cbfacc_ativ` | Definir `0` |
 
----
 
 ## 6. Referências
 
 - AMES, A. D.; XU, X.; GRIZZLE, J. W.; TABUADA, P. *Control barrier function based quadratic programs for safety critical systems*. IEEE TAC, 62(8), 2017. — Seção V-A-3 (barreira baseada em força, $h_F$).
 - CHINELATO, C. I. G. et al. *Design of adaptive cruise control with control barrier function and model-free control*. JCAES, 34, 2023. — arquitetura de dois níveis de referência.
 - GURRIET, T. et al. *Towards a framework for realizable safety critical control through active set invariance*. ICCPS, 2018. — formalização do ASIF (a arquitetura efetivamente usada no `fcn` ativo).
+
+
+
+
+
+
