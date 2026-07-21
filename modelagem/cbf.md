@@ -118,9 +118,9 @@ Toda essa dedução matemática está implementada no seu script. Veja a corresp
 
 | Matemática (Teoria) | Código (MATLAB) | O que faz |
 | :--- | :--- | :--- |
-| $$h = D - \tau_h V_f$ | `hacc = xr - Td*Vf` | Define a função de barreira. |
-| $$L_fh$ | `Lfhacc = transpose(gradient(hacc,[Vf;xr]))*f` | Calcula a derivada independente do controle. |
-| $$L_gh$ | `Lghacc = transpose(gradient(hacc,[Vf;xr]))*g` | Calcula o coeficiente que multiplica o controle $u$. |
+| $h = D - \tau_h V_f$ | `hacc = xr - Td*Vf` | Define a função de barreira. |
+| $L_fh$ | `Lfhacc = transpose(gradient(hacc,[Vf;xr]))*f` | Calcula a derivada independente do controle. |
+| $L_gh$ | `Lghacc = transpose(gradient(hacc,[Vf;xr]))*g` | Calcula o coeficiente que multiplica o controle $u$. |
 
 
 ## 8. Conclusão
