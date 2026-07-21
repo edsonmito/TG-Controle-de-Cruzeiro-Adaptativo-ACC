@@ -4,10 +4,10 @@ O QP recebe as duas restrições (CLF e CBF) e calcula o controle $u$ que satisf
 
 A cada instante de tempo, o QP recebe:
 
-- **O desejo da CLF**: Acelerar para chegar em $$( V_d )$$.
+- **O desejo da CLF**: Acelerar para chegar em $V_d$.
 - **A obrigação da CBF**: Frear para não colidir.
 
-O QP deve encontrar um valor para **$$( u )$$ (aceleração)** e para **$$( \delta )$$ (relaxação)** que minimize uma função de custo, respeitando as duas restrições.
+O QP deve encontrar um valor para **$u$ (aceleração)** e para **$\delta$ (relaxação)** que minimize uma função de custo, respeitando as duas restrições.
 
 ## 1. As Variáveis do QP
 
