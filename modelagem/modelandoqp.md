@@ -44,14 +44,14 @@ Como vimos, a CLF exige:
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
 </div>
-
-Reescrevendo para encaixar no formato \( A z \leq b \):
+<p><br>
+Reescrevendo para encaixar no formato $A z \leq b$:
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gV%20%5Ccdot%20u%20-%20%5Cdelta%20%5Cleq%20-L_fV%20-%20c_V%20V">
 </div>
 
-**Linha da CLF na matriz $$( A )$$:** $$( [L_gV, \ -1] )$$
+**Linha da CLF na matriz $A$:** $[L_gV, \ -1]$
 
 ### Restrição 2: A CBF (Segurança - Rígida)
 
@@ -61,15 +61,15 @@ A CBF exige:
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
 </div>
 
-Reescrevendo para encaixar no formato $$( A z \leq b )$$ (multiplicando por -1 para inverter a desigualdade):
+Reescrevendo para encaixar no formato $A z \leq b$ (multiplicando por -1 para inverter a desigualdade):
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20-L_gh%20%5Ccdot%20u%20%5Cleq%20L_fh%20%2B%20%5Cgamma%20h">
 </div>
 
-**Linha da CBF na matriz $$( A )$$:** $$( [-L_gh, \ 0] )$$
+**Linha da CBF na matriz $A$:** $[-L_gh, \ 0]$
 
-## 4. O Sistema Completo (Forma Matricial $$( Az \leq b )$$)
+## 4. O Sistema Completo (Forma Matricial $Az \leq b$)
 
 Juntando tudo, o QP resolve o seguinte problema a cada iteração:
 
