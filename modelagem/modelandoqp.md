@@ -1,4 +1,4 @@
-# Destrinchando o QP: Como ele casa CLF e CBF?
+# Modelando QP
 
 O QP recebe as duas restrições (CLF e CBF) e calcula o controle $$( u )$$ que satisfaz ambas da melhor forma possível.
 
