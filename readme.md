@@ -41,7 +41,17 @@ Onde $L_f$ e $L_g$ representam as Derivadas de Lie calculadas dinamicamente no s
 * <a href="modelagem/cbf.md">Segurança via CBF (Control Barrier Functions)</a>: Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
 
 ### 3. Programação Quadrática (QP)
-Modelagem Matemática do Veículo - Formulação do Problema de Otimização (QP)
+Aqui está uma sugestão curta, no mesmo tom do restante do seu repositório:
+
+---
+
+### Programação Quadrática (QP)
+É a ferramenta que permite unificar dois objetivos que, à primeira vista, parecem conflitantes: **perseguir uma velocidade de cruzeiro** e **nunca colidir com o veículo à frente**.
+O controlador resolve a cada passo:
+
+$$u^*(x) = \arg\min_{u} \; \tfrac{1}{2}u^{\top}Hu + F^{\top}u \quad \text{sujeito a restrições afins em } u$$
+
+Encontrando, entre todas as ações de controle possíveis, a mais barata que ainda respeita a segurança. Desempenho vira uma restrição *suave* (pode ceder um pouco); segurança vira uma restrição *rígida* (nunca cede). É essa mediação contínua, resolvida via QP, que torna a arquitetura **CLF-CBF-QP** — e suas variações exploradas neste repositório — capaz de garantir formalmente que a distância segura jamais é violada, mesmo enquanto tenta acelerar.
 
 * <a href="modelagem/qp.md">Modelagem QP</a>
 
