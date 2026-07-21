@@ -1,7 +1,7 @@
 
 # Controle de Cruzeiro Adaptativo (ACC) Baseado em Otimização de Sistemas Críticos de Segurança via CLF-CBF-QP
 
-O presente repositório documenta o desenvolvimento de um Trabalho de Graduação apresentado ao curso de Engenharia de Informação da Universidade Federal do ABC (UFABC), referente ao quadrimestre 2026.2, sob orientação do Prof. Dr. Caio Chinelato.
+O presente repositório documenta o desenvolvimento de um Trabalho de Graduação apresentado ao curso de Engenharia de Informação da Universidade Federal do ABC (UFABC), referente ao quadrimestre 2026.2, sob orientação do Prof. Dr. Caio Igor Gonçalves Chinelato.
 
 O trabalho tem por objetivo investigar o problema do Controle de Cruzeiro Adaptativo (ACC) sob a perspectiva de sistemas de controle críticos de segurança, propondo a unificação de dois objetivos concorrentes: a manutenção de uma velocidade de cruzeiro desejada e a garantia de uma distância segura em relação ao veículo precedente. Para tanto, são investigadas e comparadas diferentes arquiteturas de controle fundamentadas em Funções de Lyapunov de Controle (CLF), Funções de Barreira de Controle (CBF) e Programação Quadrática (QP), a saber:
 <ul>
