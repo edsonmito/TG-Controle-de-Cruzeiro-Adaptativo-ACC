@@ -72,7 +72,7 @@ $\inf_{u} \left\{ L_f V(x) + L_g V(x)u \right\} < 0$
 </div>
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%200%20V">
 </div>
 
 
