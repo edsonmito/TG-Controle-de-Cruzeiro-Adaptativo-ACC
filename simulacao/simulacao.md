@@ -36,7 +36,6 @@ flowchart TB
 | `ACC_TESTE_2026.slx` | Malha fechada Simulink — Integrators, Clock, Demux | Compartilhado pelos três `fcn` acima (trocando o conteúdo do bloco) |
 | `INIT_ACC_2026.m` | Define `Vf0`, `D0`, roda `sim(...)`, plota resultados | Script principal |
 
----
 
 ## 2. CLF-CBF-QP vs. ASIF: Duas Filosofias de Controle
 
@@ -82,7 +81,6 @@ O sistema alterna entre dois modos:
 
 No CLF-CBF-QP completo, esse chaveamento é suavizado pela variável `δ`, que permite ao sistema "negociar" em vez de abandonar `Vd` por completo.
 
----
 
 ## 3. Histórico de Validação Numérica do `psc`
 
