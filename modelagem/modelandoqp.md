@@ -96,7 +96,7 @@ O QP analisa as duas restrições e toma a decisão em 3 passos:
 **Geometricamente:** O QP encontra o ponto mais próximo da origem (no espaço $u \times \delta$) que ainda está dentro da região viável definida pelas duas retas (restrições).
 
 
-## 6. Conexão com seu Código (`QPhild.m` e Simulink)
+## 6. Conexão com o código (`QPhild.m` e Simulink)
 
 No seu bloco `CLF_CBF_QP` do Simulink, você monta as matrizes:
 
