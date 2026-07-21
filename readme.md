@@ -65,6 +65,7 @@ Este documento descreve a evolução completa da simulação do ACC — desde a 
 
 * `INIT_ACC_2026.m`: Script principal. Configura as condições iniciais ($V_{f0}$, $D_0$), executa a simulação e plota as curvas de desempenho.
 * `ACC_TESTE_2026.slx`: Modelo em Simulink contendo a malha fechada do sistema automotivo.
+* `ACC_TESTE_2026_PID.slx`: Modelo em Simulink contendo a malha fechada do sistema automotivo, implementando um PID simplificado. 
 * `FUNÇÃO_CLF_CBF_QP.txt` / `fcn`: Bloco de função do MATLAB dentro do Simulink que monta as matrizes do problema de otimização ($A \cdot u \le b$) a cada instante $t$.
 * `LIE_2026.m`: Script simbólico utilizado para deduzir as equações algébricas das Derivadas de Lie do modelo.
 * `QPhild.m`: Solver analítico de Programação Quadrática baseado no algoritmo de Hildreth, dispensando o uso do `quadprog` nativo do MATLAB para maior eficiência.
