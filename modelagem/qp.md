@@ -101,7 +101,7 @@ O QP analisa as duas restrições e toma a decisão em 3 passos:
 
 2.  **Conflito (A CBF Vence)**: Se não existe $$( u )$$ que satisfaça as duas ao mesmo tempo (ex: a CLF quer acelerar, mas a CBF exige frenagem forte), o QP **aumenta o valor de $\delta$**. Isso "alivia" a restrição da CLF (o lado direito fica menos negativo ou positivo), permitindo que o QP escolha um $u$ que satisfaça a CBF.
 
-3.  **O $\delta$ é penalizado**: Como $p_\delta$ é altíssimo, o QP calcula o **menor $\delta$ possível** que ainda permite satisfazer a CBF. Assim que o perigo passa, o QP reduz $\delta$ a zero.
+3.  **O $\delta$ é penalizado**: Como o peso da relaxação $(p_\delta)$ é altíssimo, o QP calcula o **menor $\delta$ possível** que ainda permite satisfazer a CBF. Assim que o perigo passa, o QP reduz $\delta$ a zero.
 
 **Geometricamente:** O QP encontra o ponto mais próximo da origem (no espaço $u \times \delta$) que ainda está dentro da região viável definida pelas duas retas (restrições).
 
@@ -141,70 +141,4 @@ O QP atua como um mecanismo de mediação entre a CLF e a CBF, resolvendo um pro
 - CLF puxa para frente (desempenho). 
 - CBF segura para trás (segurança). 
 - QP é o juiz que calcula o equilíbrio perfeito a cada milésimo de segundo, usando $\delta$ como o "termo de ajuste" para evitar que o problema fique sem solução.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Sujeito às restrições:
-
-**1. Desempenho (CLF):**
-
-<div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
-</div>
-
-**2. Segurança (CBF):**
-
-<div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
-</div>
-
-**3. Limites de Atuação (Opcional, mas recomendado para conforto):**
-
-<div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20u_%7B%5Cmin%7D%20%5Cleq%20u%20%5Cleq%20u_%7B%5Cmax%7D">
-</div>
-
-Onde:
-- $H$: Matriz de ponderação do controle (ex: $H = 1/m^2$ para minimizar o esforço de força).
-- $p_\delta$: Peso da relaxação (deve ser um valor alto, ex: $10^5$, para que o QP só use $\delta > 0$ em emergências).
 
