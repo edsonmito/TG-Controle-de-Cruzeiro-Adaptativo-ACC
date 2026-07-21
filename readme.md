@@ -1,9 +1,15 @@
 
 # Controle de Cruzeiro Adaptativo (ACC) Baseado em Otimização de Sistemas Críticos de Segurança via CLF-CBF-QP
 
-Este repositório contém o ambiente de simulação em MATLAB/Simulink para um **Sistema Avançado de Assistência ao Condutor (ADAS)**, focando na implementação de um **Controle de Cruzeiro Adaptativo (ACC)**. O projeto diferencia-se das abordagens tradicionais ao unificar objetivos de desempenho e restrições estritas de segurança em tempo real por meio de uma formulação baseada em otimização.
+Este repositório reúne o desenvolvimento de um Trabalho de Graduação do curso de Engenharia de Informação, turma 2026.2, da Universidade Federal do ABC (UFABC), sob orientação do Prof. Dr. Caio Chinelato.
 
-O framework matemático adota **Funções de Lyapunov de Controle (CLF)** para o rastreamento da velocidade desejada e **Funções de Barreira de Controle (CBF)** para garantir a invariância de segurança (evitar colisões), resolvidos concorrentemente via **Programação Quadrática (QP)**.
+O trabalho investiga o problema do Controle de Cruzeiro Adaptativo (ACC) sob a ótica de sistemas de controle críticos de segurança, unificando dois objetivos que competem entre si: perseguir uma velocidade de cruzeiro desejada e garantir, a todo instante, uma distância segura em relação ao veículo à frente. Para isso, o projeto explora e compara diferentes arquiteturas baseadas em Funções de Lyapunov de Controle (CLF), Funções de Barreira de Controle (CBF) e Programação Quadrática (QP), incluindo:
+
+a formulação unificada CLF-CBF-QP, onde desempenho e segurança são mediados dentro de um único problema de otimização resolvido em tempo real;
+a arquitetura de Filtro de Segurança (ASIF), onde um controlador nominal de desempenho é filtrado por uma camada de segurança independente;
+a arquitetura de dois níveis (nível superior de decisão + nível inferior de atuação via PID), aproximando o modelo de um sistema veicular real.
+
+Toda a simulação foi implementada e validada em MATLAB/Simulink, com documentação detalhada da modelagem matemática, dos parâmetros de projeto e dos resultados obtidos ao longo do desenvolvimento — incluindo o próprio processo de depuração e validação numérica, registrado como parte do aprendizado do trabalho.
 
 
 ## Visão Geral do Projeto
