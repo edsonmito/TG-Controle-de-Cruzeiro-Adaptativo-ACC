@@ -62,8 +62,8 @@ Proposta por Zartsin e popularizada por Eduardo Sontag na década de 1980, a CLF
 $\dot{x} = f(x) + g(x)u$
 
 A pergunta passa a ser: *Existe uma ação de controle $u$ capaz de tornar a derivada temporal de $V(x)$ negativa?*
-Uma função $V(x)$ é uma CLF se, para todo $x \neq 0$:
 
+Uma função $V(x)$ é uma CLF se, para todo $x\neq 0$:
 
 $\inf_{u} \left\{ L_f V(x) + L_g V(x)u \right\} < 0$
 
