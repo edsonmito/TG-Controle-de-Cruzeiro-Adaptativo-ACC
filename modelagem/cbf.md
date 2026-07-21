@@ -60,7 +60,7 @@ Substituindo as derivadas parciais de $h = D - \tau_h V_f$ e as dinâmicas $\dot
 ## 4. Extraindo as Derivadas de Lie da CBF ($L_fh$ e $L_gh$)
 
 
-%Derivadas de Lie da CBF
+% Derivadas de Lie da CBF
 
 %<div align="center">
 %  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%3D%20%5Cnabla%20h%20%5Ccdot%20f(x)%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
