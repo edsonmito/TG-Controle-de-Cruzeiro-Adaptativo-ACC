@@ -59,7 +59,7 @@ Encontrando, entre todas as ações de controle possíveis, a mais barata que ai
 ## Simulação Matlab
 Este documento descreve a evolução completa da simulação do ACC — desde a primeira tentativa (arquitetura ASIF com conflito CBF×conforto) até a arquitetura de dois níveis final (Chinelato et al., 2023) — incluindo todo o processo de depuração numérica, as descobertas qualitativas sobre o comportamento das diferentes arquiteturas, e o dicionário completo de parâmetros.
 
-<a href="simulacao/simulacao.md">Simulação Matlab</a>
+* <a href="simulacao/simulacao.md">Simulação Matlab</a>
 
 ## Estrutura do Repositório
 
