@@ -1,0 +1,27 @@
+close all
+clear
+clc
+
+Vf0 = 18;
+D0 = 150;
+tspan=[0 100];
+sim('ACC_TESTE_2026',tspan);
+
+figure(1)
+subplot(221),plot(t,Vl,t,Vf,t,Vd)
+xlabel('t(s)')
+ylabel('V(m/s)')
+legend('Vl','Vf','Vd')
+grid
+subplot(222),plot(t,xr)
+xlabel('t(s)')
+ylabel('D(m)')
+grid
+subplot(223),plot(t,hacc)
+xlabel('t(s)')
+ylabel('h(m)')
+grid
+subplot(224),plot(t,u)
+xlabel('t(s)')
+ylabel('u(m/s2)')
+grid

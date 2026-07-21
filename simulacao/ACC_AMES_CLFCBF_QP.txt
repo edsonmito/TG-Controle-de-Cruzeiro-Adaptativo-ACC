@@ -1,0 +1,77 @@
+function y = fcn(u)
+% ============================================================
+% ACC — CLF-CBF-QP completo (Ames, Grizzle & Tabuada, 2014)
+% "Case I": CLF (velocidade) + CBF (distância segura), SEM
+% restrições de força/conforto (h_F não implementada aqui).
+% Convenção de unidades: u é FORÇA (N)  =>  m*dVf/dt = Fw - Fr
+% ============================================================
+
+% Estados
+Vf = u(1);
+xr = u(2);
+% Tempo
+t  = u(3);
+
+% --- Parâmetros do veículo (Tabela I, Ames et al. 2014) ---
+m  = 1650;
+f0 = 0.1;
+f1 = 5;
+f2 = 0.25;
+
+% --- Perfil do veículo líder (mantido customizado, ver simulacao.md) ---
+if(t <= 10)
+    Vl = 10;
+elseif(t>10 && t<=20)
+    Vl = -2+1.2*t;
+elseif(t>20 && t<=30)
+    Vl = 22;
+elseif(t>30 && t<=40)
+    Vl = 7+0.5*t;
+elseif(t>40 && t<=50)
+    Vl = 27;
+elseif(t>50 && t<=60)
+    Vl = 77-t;
+else
+    Vl = 17;
+end
+
+% --- Força de arrasto aerodinâmico ---
+Fr = f0 + f1*Vf + f2*Vf*Vf;
+
+% --- Sistema no espaço de estados: x=[Vf;xr], u = Fw (N) ---
+f = [-Fr/m; Vl-Vf];
+g = [1/m; 0];
+
+% --- Parâmetros de projeto (Tabela I, Ames et al. 2014) ---
+Vd  = 22;      % mantido em 22 (escolha do autor; artigo usa 24)
+psc = 1e-5;    % peso da folga delta — validado (ver simulacao.md, Seção 1.2)
+c   = 10;      % taxa de convergência da CLF (≡ ε no artigo)
+lambda = 1;    % agressividade da CBF na fronteira (≡ γ no artigo)
+Td  = 1.8;     % time headway (≡ τd no artigo)
+
+% --- CLF: rastreamento da velocidade de cruzeiro ---
+Vacc = (Vf-Vd)^2;
+LfVacc = (Fr*(2*Vd - 2*Vf))/m;
+LgVacc = (2*Vf - 2*Vd)/m;
+
+% --- CBF: distância segura (time headway) ---
+hacc = xr - Td*Vf;
+Lfhacc = Vl - Vf + (Fr*Td)/m;
+Lghacc = -Td/m;
+
+% --- Custo do QP (min-norm em torno de Fr, escala de força) ---
+Hacc = 2*[1/(m*m) 0; 0 psc];
+Facc = -2*[Fr/(m*m); 0];
+
+% --- Restrições: CLF (suave, com folga) + CBF (rígida) ---
+A = [LgVacc -1; -Lghacc 0];
+b = [-LfVacc-c*Vacc; Lfhacc+lambda*(hacc)];
+
+% --- Resolve o QP ---
+ucont = [0;0];
+coder.extrinsic('QPhild');
+ucont = QPhild(Hacc,Facc,A,b);
+
+% --- Aplica o controle ---
+xponto = f + g.*ucont(1,1);
+y = [xponto(1,1); xponto(2,1); hacc; Vl; ucont(1,1); Vd];
