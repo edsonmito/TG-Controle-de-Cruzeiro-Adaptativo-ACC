@@ -96,7 +96,7 @@ Substituindo $\dot{V}_f$ pela equação do veículo, temos a derivada completa e
 </div>
 
 
-### 5. Extraindo as Derivadas de Lie ($L_fV$ e $L_gV$)
+## 5. Extraindo as Derivadas de Lie ($L_fV$ e $L_gV$)
 
 Para construir a restrição linear no QP, calculamos as derivadas de Lie:
 <p>
