@@ -135,16 +135,21 @@ Substituindo $\dot{V}$ pela forma $L_fV + L_gV \cdot u$, obtemos a **restrição
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V">
 </div>
 
-Onde $c_V > 0$ é a **taxa de convergência**. Quanto maior o $c_V$, mais rápido o carro acelera/freia para atingir a velocidade desejada, e quanto menor o $c_V$, a aceleração é mais lenta. A taxa de convergência deve ser configurada para encontrar um valor intermediário. 
+Onde $c_V > 0$ é a **taxa de convergência (ou taxa de decaimento exponencial)**. Quanto maior o $c_V$, mais rápido o carro acelera/freia para atingir a velocidade desejada, e quanto menor o $c_V$, a aceleração é mais lenta. A taxa de convergência deve ser configurada para encontrar um valor intermediário. 
+
+$\delta \$: Variável de relaxação (slack), que permite sacrificar a estabilidade temporariamente para priorizar a segurança.
+
 
 
 ## 6. A Relaxação ($\delta$) e sua relação com a segurança
 
-Se a restrição acima for muito rígida, pode não existir solução quando a segurança (CBF) exigir frenagem forte. Para resolver isso, a teoria introduz a **variável de relaxação ($\delta$)**, transformando a restrição em:
-
+A condição de estabilidade exponencial é imposta pela desigualdade:
+<p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V(x)%20%2B%20%5Cdelta">
 </div>
+
+Se a restrição acima for muito rígida, pode não existir solução quando a segurança (CBF) exigir frenagem forte. Para resolver isso, a teoria introduz a **variável de relaxação ($\delta$)**
 
 **Interpretação Física:**
 - Se $\delta = 0$: A CLF é respeitada. O carro converge exponencialmente para $V_d$.
@@ -191,17 +196,7 @@ Para construir a restrição linear no QP, calculamos as derivadas de Lie:
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gV%20%3D%20%5Cnabla%20V%20%5Ccdot%20g(x)%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20%5Cfrac%7B1%7D%7Bm%7D%20%5Cright)">
 </div>
 
-### 2.2. Restrição de Estabilidade (CLF)
 
-A condição de estabilidade exponencial é imposta pela desigualdade:
-<p>
-<div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V(x)%20%2B%20%5Cdelta">
-</div>
-
-Onde:
-- $$( c_V > 0 )$$: Taxa de decaimento exponencial (quanto maior, mais rápida a resposta).
-- $$( \delta \)$$: Variável de relaxação (slack), que permite sacrificar a estabilidade temporariamente para priorizar a segurança.
 
 <a href="modelandoclf.md">Ver modelagem do CLF.</a>
 
