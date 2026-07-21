@@ -123,7 +123,6 @@ $$p_{sc} \to \infty \quad\Longrightarrow\quad \text{CLF-CBF-QP} \to \text{ASIF}$
 
 Essa é uma contribuição analítica que emergiu da investigação empírica deste projeto — vale destacá-la na seção de discussão do TG.
 
----
 
 ## 4. Arquitetura de Dois Níveis (Chinelato et al., 2023)
 
@@ -167,7 +166,6 @@ A prova de invariância da CBF (usada em todos os testes anteriores) assume que 
 
 Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto do modelo) não podem usar `persistent` — solvers de passo variável chamam a função múltiplas vezes por passo (estágios intermediários), o que corromperia a memória do PID. Correção: configurar o **Sample Time** do bloco para um valor discreto fixo (`0.02`, mesmo valor do `Ts` usado no cálculo do termo integral).
 
----
 
 ## 5. Dicionário de Parâmetros (consolidado)
 
@@ -206,7 +204,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 | $D_0$ | 150 m | Definido em `INIT_ACC_2026.m` |
 | `tspan` | [0, 100] s | Necessário para cobrir todo o perfil do líder |
 
----
 
 ## 6. Como Cada Parâmetro Afeta a Performance
 
@@ -217,20 +214,18 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 - **Limites de atuador (`a_th_max`, `a_br_max`) ↓** (mais restritivos) → maior risco da violação descrita na Seção 4.3, já que o gap entre `a_h*` (irrestrito) e `ah` (saturado) cresce.
 - **`Vf0`, `D0`** → não são parâmetros de sintonia, mas definem o ponto de partida em relação à fronteira do conjunto seguro; início muito próximo da borda intensifica transientes de frenagem.
 
----
 
 ## 7. Tabela-Resumo: "O que mexer para..."
 
 | Quero que o sistema... | Parâmetro a ajustar | Direção |
 |---|---|---|
-| Converja mais rápido para `Vd`, sem zona preguiçosa | `psc` (`pdacc`) | Aumentar (mas cuidado com mal-condicionamento acima de ~50-100) |
+| Convirja mais rápido para `Vd`, sem zona preguiçosa | `psc` (`pdacc`) | Aumentar (mas cuidado com mal-condicionamento acima de ~50-100) |
 | Siga mais próximo do líder | `Td` | Diminuir (com cautela) |
 | Seja mais conservador na fronteira segura | `lambda` | Diminuir |
 | Se comporte mais como o ASIF (perseguição "tudo ou nada") | `psc` | Aumentar bastante (→∞) |
 | Reduza a violação de segurança do nível inferior (Seção 4.3) | `a_th_max`, `a_br_max` (aumentar) ou adicionar restrição de conforto no QP superior | Ajustar limites físicos ou implementar `h_F` |
 | Teste apenas o comportamento nominal, sem segurança (ASIF) | `cbfacc_ativ` | Definir `0` |
 
----
 
 ## 8. Referências
 
