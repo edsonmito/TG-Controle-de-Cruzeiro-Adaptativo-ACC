@@ -5,7 +5,7 @@
 Define-se o vetor de estados do veículo controlado como:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20x%20%3D%20%5B%20V_f%2C%20D%20%5D%5ET">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20x%20%3D%20%5B%20V_f%2C%20D%20%5D%5ET">
 </div>
 
 onde:
@@ -19,18 +19,18 @@ onde:
 A dinâmica do sistema é descrita pelas equações diferenciais ordinárias:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
 </div>
 <p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7BD%7D%20%3D%20V_l%20-%20V_f">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BD%7D%20%3D%20V_l%20-%20V_f">
 </div>
 <p>
 
 Reescrevendo na forma afim padrão para controle $\dot{x} = f(x) + g(x)u$:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20f(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%5C%5C%20V_l%20-%20V_f%20%5Cend%7Bbmatrix%7D%2C%20%5Cquad%20g(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20%5Cfrac%7B1%7D%7Bm%7D%20%5C%5C%200%20%5Cend%7Bbmatrix%7D">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20f(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%5C%5C%20V_l%20-%20V_f%20%5Cend%7Bbmatrix%7D%2C%20%5Cquad%20g(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20%5Cfrac%7B1%7D%7Bm%7D%20%5C%5C%200%20%5Cend%7Bbmatrix%7D">
 </div>
 
 <a href="modelandosistema.md">Ver modelagem do sistema.</a>
@@ -41,7 +41,7 @@ Reescrevendo na forma afim padrão para controle $\dot{x} = f(x) + g(x)u$:
 O objetivo de desempenho é fazer com que a velocidade do veículo $$( V_f )$$ rastreie a velocidade desejada $$( V_d )$$. Define-se a CLF como o quadrado do erro de rastreamento:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20V(x)%20%3D%20(V_f%20-%20V_d)%5E2">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20V(x)%20%3D%20(V_f%20-%20V_d)%5E2">
 </div>
 
 ### 2.1. Derivadas de Lie da CLF
@@ -49,11 +49,11 @@ O objetivo de desempenho é fazer com que a velocidade do veículo $$( V_f )$$ r
 Para construir a restrição linear no QP, calculamos as derivadas de Lie:
 <p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fV%20%3D%20%5Cnabla%20V%20%5Ccdot%20f(x)%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%5Cright)">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%3D%20%5Cnabla%20V%20%5Ccdot%20f(x)%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%5Cright)">
 </div>
 <p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_gV%20%3D%20%5Cnabla%20V%20%5Ccdot%20g(x)%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20%5Cfrac%7B1%7D%7Bm%7D%20%5Cright)">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gV%20%3D%20%5Cnabla%20V%20%5Ccdot%20g(x)%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20%5Cfrac%7B1%7D%7Bm%7D%20%5Cright)">
 </div>
 
 ### 2.2. Restrição de Estabilidade (CLF)
@@ -61,7 +61,7 @@ Para construir a restrição linear no QP, calculamos as derivadas de Lie:
 A condição de estabilidade exponencial é imposta pela desigualdade:
 <p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V(x)%20%2B%20%5Cdelta">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V(x)%20%2B%20%5Cdelta">
 </div>
 
 Onde:
@@ -76,7 +76,7 @@ Onde:
 A segurança no ACC é definida pela manutenção de uma distância mínima em relação ao veículo líder. Define-se a CBF como:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20h(x)%20%3D%20D%20-%20%5Ctau_h%20%5Ccdot%20V_f">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20h(x)%20%3D%20D%20-%20%5Ctau_h%20%5Ccdot%20V_f">
 </div>
 
 Onde:
@@ -85,11 +85,11 @@ Onde:
 ### 3.1. Derivadas de Lie da CBF
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%3D%20%5Cnabla%20h%20%5Ccdot%20f(x)%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%3D%20%5Cnabla%20h%20%5Ccdot%20f(x)%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
 </div>
 <p>
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_gh%20%3D%20%5Cnabla%20h%20%5Ccdot%20g(x)%20%3D%20-%5Ctau_h">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gh%20%3D%20%5Cnabla%20h%20%5Ccdot%20g(x)%20%3D%20-%5Ctau_h">
 </div>
 <p>
 *(Nota: Estes cálculos são exatamente os realizados pelo script `LIE_2026.m` quando ele executa `Lfhacc` e `Lghacc`).*
@@ -99,7 +99,7 @@ Onde:
 A condição para que a distância nunca se torne negativa (invariância do conjunto seguro) é:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h(x)%20%5Cgeq%200">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h(x)%20%5Cgeq%200">
 </div>
 <p>
 Onde $$( \gamma > 0 )$$: Parâmetro que ajusta a "agressividade" da barreira. Quanto maior, mais cedo o sistema começa a frear para evitar a violação da segurança.
@@ -111,7 +111,7 @@ Onde $$( \gamma > 0 )$$: Parâmetro que ajusta a "agressividade" da barreira. Qu
 O controlador final é obtido resolvendo o seguinte QP a cada instante de tempo:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cmin_%7Bu%2C%20%5Cdelta%7D%20%5Cquad%20%5Cfrac%7B1%7D%7B2%7D%20u%5ET%20H%20u%20%2B%20p_%5Cdelta%20%5Cdelta%5E2">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cmin_%7Bu%2C%20%5Cdelta%7D%20%5Cquad%20%5Cfrac%7B1%7D%7B2%7D%20u%5ET%20H%20u%20%2B%20p_%5Cdelta%20%5Cdelta%5E2">
 </div>
 
 Sujeito às restrições:
@@ -119,19 +119,19 @@ Sujeito às restrições:
 **1. Desempenho (CLF):**
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
 </div>
 
 **2. Segurança (CBF):**
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
 </div>
 
 **3. Limites de Atuação (Opcional, mas recomendado para conforto):**
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20u_%7B%5Cmin%7D%20%5Cleq%20u%20%5Cleq%20u_%7B%5Cmax%7D">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20u_%7B%5Cmin%7D%20%5Cleq%20u%20%5Cleq%20u_%7B%5Cmax%7D">
 </div>
 
 Onde:
