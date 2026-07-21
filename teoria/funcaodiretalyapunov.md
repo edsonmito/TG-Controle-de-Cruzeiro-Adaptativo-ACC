@@ -67,6 +67,16 @@ Uma função $V(x)$ é uma CLF se, para todo $x\neq 0$:
 
 $\inf_{u} \left\{ L_f V(x) + L_g V(x)u \right\} < 0$
 
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D%20%5Cleq%20-c_V%20%5Ccdot%20V">
+</div>
+
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V">
+</div>
+
+
+
 Esta formulação matemática permite projetar leis de controle não-lineares universais (como a famosa Fórmula de Sontag) e é a base da otimização em tempo real via Programação Quadrática (QP) utilizada no seu projeto de ACC.
 
 ### B. Barrier Lyapunov Functions (BLF)
