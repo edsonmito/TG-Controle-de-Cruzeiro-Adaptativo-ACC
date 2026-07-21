@@ -77,6 +77,15 @@ Reescrevendo para encaixar no formato $A z \leq b$ (multiplicando por -1 para in
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20-L_gh%20%5Ccdot%20u%20%5Cleq%20L_fh%20%2B%20%5Cgamma%20h">
 </div>
 
+
+### 3. Limites de Atuação (Opcional, mas recomendado para conforto)
+
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20u_%7B%5Cmin%7D%20%5Cleq%20u%20%5Cleq%20u_%7B%5Cmax%7D">
+</div>
+
+
+
 **Linha da CBF na matriz $A$:** $[-L_gh, \ 0]$
 
 ## 5. O Sistema Completo (Forma Matricial $Az \leq b$)
