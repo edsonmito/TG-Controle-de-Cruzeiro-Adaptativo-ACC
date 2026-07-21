@@ -54,8 +54,6 @@ O objetivo de desempenho é fazer com que a velocidade do veículo $V_f$ rastrei
 <p>
 Se conseguirmos fazer com que $e \to 0$, o carro atingiu a velocidade desejada.
 
-
-
 ## 3. A Função de Lyapunov Candidata 
 
 A função de Lyapunov mais clássica e intuitiva para erros de rastreamento é o **quadrado do erro**. Ela é sempre positiva (exceto na origem) e mede a "energia" do erro.
@@ -72,7 +70,62 @@ A função de Lyapunov mais clássica e intuitiva para erros de rastreamento é 
    - Quando $V_f \to \infty$, $V(x) \to \infty$. Isso garante estabilidade global (não importa se o carro está a 10 m/s ou 100 m/s, a função funciona).
 
 
+## 4. Calculando a Derivada Temporal ($\dot{V}$)
 
+Aplicando a regra da cadeia para derivar $V$:
+
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D%20%3D%20%5Cfrac%7Bd%7D%7Bdt%7D(e%5E2)%20%3D%202%20%5Ccdot%20e%20%5Ccdot%20%5Cfrac%7Bde%7D%7Bdt%7D">
+</div>
+<p>
+Derivando o erro $e = V_f - V_d$ em relação ao tempo.
+<p>
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cfrac%7Bde%7D%7Bdt%7D%20%3D%20%5Cdot%7BV%7D_f%20-%20%5Cdot%7BV%7D_d%20%3D%20%5Cdot%7BV%7D_f%20-%200%20%3D%20%5Cdot%7BV%7D_f">
+</div>
+<p>
+Lembrando da dinâmica do veículo (vinda da modelagem anterior):
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D_f%20%3D%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u">
+</div>
+<p>
+Substituindo $\dot{V}_f$ pela equação do veículo, temos a derivada completa expandida:
+<p>
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D%20%3D%202(V_f%20-%20V_d)%20%5Ccdot%20%5Cleft(%20-%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20%5Cfrac%7B1%7D%7Bm%7D%20u%20%5Cright)">
+</div>
+
+
+## 5. Extraindo as Derivadas de Lie ($L_fV$ e $L_gV$)
+
+Para que o controlador (QP) consiga usar essa equação, precisamos separar a parte que **não depende** do controle $u$ (chamada de $L_fV$) e a parte que **multiplica** o controle $u$ (chamada de $L_gV$).
+
+Expandindo a equação anterior:
+
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7BV%7D%20%3D%20%5Cunderbrace%7B%5Cleft(%20-%5Cfrac%7B2(V_f%20-%20V_d)F_r%7D%7Bm%7D%20%5Cright)%7D_%7BL_fV%7D%20%2B%20%5Cunderbrace%7B%5Cleft(%20%5Cfrac%7B2(V_f%20-%20V_d)%7D%7Bm%7D%20%5Cright)%7D_%7BL_gV%7D%20%5Ccdot%20u">
+</div>
+
+Portanto, as duas partes são:
+
+**1. Derivada de Lie em relação a f (arrasto e cinemática):**
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%3D%20-%5Cfrac%7B2(V_f%20-%20V_d)%20%5Ccdot%20F_r%7D%7Bm%7D">
+</div>
+
+**2. Derivada de Lie em relação a g (o multiplicador do controle):**
+<div align="center">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gV%20%3D%20%5Cfrac%7B2(V_f%20-%20V_d)%7D%7Bm%7D">
+</div>
+
+
+
+
+
+
+
+
+---
 
 
 
