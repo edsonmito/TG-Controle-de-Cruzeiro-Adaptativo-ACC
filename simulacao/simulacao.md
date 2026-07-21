@@ -251,11 +251,3 @@ As imagens abaixo foram geradas no MATLAB/Simulink a partir de `INIT_ACC_2026.m`
 
 *Mesmas condições iniciais.* O primeiro gráfico mostra `a_h^*` (desejado pelo nível superior) disparando para ~20 m/s² em `t≈0` — muito acima da capacidade física dos atuadores (`a_th_max=3`, `a_br_max=6`) — enquanto `a_h` (real, pós-saturação) permanece contido. O segundo gráfico mostra `uth`/`ubr` nunca ativos simultaneamente, com o freio reagindo exatamente nos instantes de pressão da CBF (t≈10s e t≈75s, coincidindo com os vales de `h(m)` do gráfico principal). Esta é a arquitetura que revelou o achado da Seção 4.3: `min(hacc) = −0.0053` em `t=10.36s` — uma violação pequena, mas real, causada pela saturação do nível inferior não estar contemplada na prova formal do nível superior.
 
-
-## 9. Referências
-
-- AMES, A. D.; GRIZZLE, J. W.; TABUADA, P. *Control barrier function based quadratic programs with application to adaptive cruise control*. IEEE CDC, 2014.
-- AMES, A. D.; XU, X.; GRIZZLE, J. W.; TABUADA, P. *Control barrier function based quadratic programs for safety critical systems*. IEEE TAC, 62(8), 2017.
-- AMES, A. D.; COOGAN, S.; EGERSTEDT, M.; NOTOMISTA, G.; SREENATH, K.; TABUADA, P. *Control barrier functions: Theory and applications*. European Control Conference (ECC), 2019.
-- GURRIET, T.; SINGLETARY, A.; REHER, J.; CIARLETTA, L.; FERON, E.; AMES, A. D. *Towards a framework for realizable safety critical control through active set invariance*. ICCPS, 2018. — fonte da arquitetura ASIF.
-- CHINELATO, C. I. G.; ANGÉLICO, B. A.; JUSTO, J. F.; LAGANÁ, A. A. M. *Design of adaptive cruise control with control barrier function and model-free control*. Journal of Control, Automation and Electrical Systems, 34, 2023. — fonte da arquitetura de dois níveis.
