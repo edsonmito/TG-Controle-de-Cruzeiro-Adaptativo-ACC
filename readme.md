@@ -40,6 +40,10 @@ Onde $L_f$ e $L_g$ representam as Derivadas de Lie calculadas dinamicamente no s
 
 * <a href="docs/cbf.md">Segurança via CBF (Control Barrier Functions)</a>: Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
 
+## Simulação Matlab
+
+<a href="simulacao/simulacao.md">Simulação Matlab</a>
+
 ## 📂 Estrutura do Repositório
 
 * `INIT_ACC_2026.m`: Script principal. Configura as condições iniciais ($V_{f0}$, $D_0$), executa a simulação e plota as curvas de desempenho.
