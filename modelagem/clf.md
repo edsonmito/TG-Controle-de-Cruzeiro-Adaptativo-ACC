@@ -70,8 +70,8 @@ A função de Lyapunov mais clássica e intuitiva para erros de rastreamento é 
    - Quando $V_f \to \infty$, $V(x) \to \infty$. Isso garante estabilidade global (não importa se o carro está a 10 m/s ou 100 m/s, a função funciona).
 
 <a href="/teoria/funcaodiretalyapunov.md">Ver Função Direta de Lyapunov</a><br>
-<a href="/teoria/funcaoindiretalyapunov.md">Ver Função Direta de Lyapunov</a><br>
-<a href="/teoria/lyapunovparaacc.md">Função de Lyapunov para ACC</a>
+<a href="/teoria/funcaoindiretalyapunov.md">Ver Função Indireta de Lyapunov</a><br>
+<a href="/teoria/lyapunovparaacc.md">Adaptação da Função de Lyapunov para ACC</a>
 
 ## 4. Calculando a Derivada Temporal ($\dot{V}$)
 
