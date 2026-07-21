@@ -11,14 +11,14 @@ No ACC, a região segura é definida pela distância entre os carros: ela nunca 
 Para aplicar a CBF, precisamos definir matematicamente o que é "seguro". Definimos o conjunto $$( \mathcal{C} )$$ (safe set) como:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cmathcal%7BC%7D%20%3D%20%5C%7B%20x%20%5Cin%20%5Cmathbb%7BR%7D%5E2%20%5C%2C%20%7C%20%5C%2C%20h(x)%20%5Cgeq%200%20%5C%7D">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cmathcal%7BC%7D%20%3D%20%5C%7B%20x%20%5Cin%20%5Cmathbb%7BR%7D%5E2%20%5C%2C%20%7C%20%5C%2C%20h(x)%20%5Cgeq%200%20%5C%7D">
 </div>
 
 **A Função $$( h(x) )$$:**
 A função que define a fronteira da segurança no ACC é a distância relativa descontada do tempo de reação $$\( \tau_h )$$):
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20h(x)%20%3D%20D%20-%20%5Ctau_h%20%5Ccdot%20V_f">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20h(x)%20%3D%20D%20-%20%5Ctau_h%20%5Ccdot%20V_f">
 </div>
 
 - Se $(h(x) > 0)$: Estamos seguros (distância folgada).
@@ -34,7 +34,7 @@ Vale ressaltar que se você só olhar para $( h )$ como critério de segurança,
 Para estender essa condição para **todo o conjunto seguro** (e não só na borda), a teoria usa a seguinte desigualdade:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%2B%20%5Cgamma%20%5Ccdot%20h%20%5Cgeq%200">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7Bh%7D%20%2B%20%5Cgamma%20%5Ccdot%20h%20%5Cgeq%200">
 </div>
 
 Onde $\gamma$ é a taxa de decaimento máxima permitida, e $h$ a função de barreira. 
@@ -48,13 +48,13 @@ Onde $\gamma$ é a taxa de decaimento máxima permitida, e $h$ a função de bar
 Para o QP usar essa restrição, precisamos explicitar o controle $$( u )$$ em $$( \dot{h} )$$. Aplicamos a Regra da Cadeia:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%3D%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20D%7D%20%5Ccdot%20%5Cdot%7BD%7D%20%2B%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20V_f%7D%20%5Ccdot%20%5Cdot%7BV%7D_f">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7Bh%7D%20%3D%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20D%7D%20%5Ccdot%20%5Cdot%7BD%7D%20%2B%20%5Cfrac%7B%5Cpartial%20h%7D%7B%5Cpartial%20V_f%7D%20%5Ccdot%20%5Cdot%7BV%7D_f">
 </div>
 
 Substituindo as derivadas parciais de $$( h = D - \tau_h V_f )$$ e as dinâmicas $$( \dot{D} = V_l - V_f )$$ e $$( \dot{V}_f = -\frac{F_r}{m} + \frac{u}{m} )$$:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20%5Cdot%7Bh%7D%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)%20-%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7B1%7D%7Bm%7D%20u">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cdot%7Bh%7D%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)%20-%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7B1%7D%7Bm%7D%20u">
 </div>
 
 ## 4. Extraindo as Derivadas de Lie da CBF ($L_fh$ e $L_gh$)
@@ -63,12 +63,12 @@ Para encaixar no QP, separamos o que independe do controle ( $L_fh$ ) e o que mu
 
 **1. Derivada de Lie em relação a f (parte natural da dinâmica):**
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%3D%20%5Ctau_h%20%5Ccdot%20%5Cfrac%7BF_r%7D%7Bm%7D%20%2B%20(V_l%20-%20V_f)">
 </div>
 
 **2. Derivada de Lie em relação a g (o multiplicador do controle):**
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_gh%20%3D%20-%5Ctau_h">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_gh%20%3D%20-%5Ctau_h">
 </div>
 
 ## 5. A Restrição da CBF no QP (A Desigualdade $$( \geq )$$)
@@ -76,7 +76,7 @@ Para encaixar no QP, separamos o que independe do controle ( $L_fh$ ) e o que mu
 Substituindo $$( \dot{h} = L_fh + L_gh \cdot u )$$ na condição de invariância, obtemos a restrição final que será usada no QP:
 
 <div align="center">
-  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bwhite%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
+  <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
 </div>
 
 **Perceba a diferença fundamental da CLF:**
