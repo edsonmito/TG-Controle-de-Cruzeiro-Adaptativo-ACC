@@ -1,6 +1,4 @@
-
-
-## 1. Formulação do Problema de Otimização (QP)
+# Modelagem Matemática do Veículo - Formulação do Problema de Otimização (QP)
 
 O controlador final é obtido resolvendo o seguinte QP a cada instante de tempo:
 
@@ -10,19 +8,19 @@ O controlador final é obtido resolvendo o seguinte QP a cada instante de tempo:
 
 Sujeito às restrições:
 
-**1.1. Desempenho (CLF):**
+**1. Desempenho (CLF):**
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fV%20%2B%20L_gV%20%5Ccdot%20u%20%5Cleq%20-c_V%20V%20%2B%20%5Cdelta">
 </div>
 
-**1.2. Segurança (CBF):**
+**2. Segurança (CBF):**
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20L_fh%20%2B%20L_gh%20%5Ccdot%20u%20%2B%20%5Cgamma%20h%20%5Cgeq%200">
 </div>
 
-**1.3. Limites de Atuação (Opcional, mas recomendado para conforto):**
+**3. Limites de Atuação (Opcional, mas recomendado para conforto):**
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20u_%7B%5Cmin%7D%20%5Cleq%20u%20%5Cleq%20u_%7B%5Cmax%7D">
@@ -33,7 +31,7 @@ Onde:
 - $$( p_\delta )$$: Peso da relaxação (deve ser um valor alto, ex: $$( 10^5 )$$, para que o QP só use $$( \delta > 0 )$$ em emergências).
 
 
-## 2. Interpretação Física do Sistema de Equações
+## 4. Interpretação Física do Sistema de Equações
 
 | Elemento | Equação | Significado Físico |
 | :--- | :--- | :--- |
