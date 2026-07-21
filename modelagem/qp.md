@@ -1,6 +1,6 @@
 # Modelagem Matemática do Veículo - Formulação do Problema de Otimização (QP)
 
-O controlador final é obtido resolvendo o seguinte QP a cada instante de tempo:
+O controlador final é obtido resolvendo a seguinte Programação Quadrática (QP) a cada instante de tempo:
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cmin_%7Bu%2C%20%5Cdelta%7D%20%5Cquad%20%5Cfrac%7B1%7D%7B2%7D%20u%5ET%20H%20u%20%2B%20p_%5Cdelta%20%5Cdelta%5E2">
