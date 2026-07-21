@@ -46,7 +46,7 @@ Sistema: $\dot{x} = -x^3$
 Candidata: $V(x) = x^2$ (positiva definida, V(0)=0)
 
 Derivada:
-$$\dot{V}(x) = 2x \cdot \dot{x} = 2x \cdot (-x^3) = -2x^4$$
+$\dot{V}(x) = 2x \cdot \dot{x} = 2x \cdot (-x^3) = -2x^4$
 
 Como $-2x^4 < 0$ para todo x ≠ 0, concluímos que o equilíbrio x = 0 é **assintoticamente estável** — e chegámos a essa conclusão sem resolver a equação diferencial!
 
