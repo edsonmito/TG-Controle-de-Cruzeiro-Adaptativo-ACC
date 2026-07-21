@@ -232,7 +232,7 @@ As imagens abaixo foram geradas no MATLAB/Simulink a partir de `INIT_ACC_2026.m`
 
 ### 8.1 ASIF — Filtro Nominal + CBF
 
-<img src="(asif_resultado.png" width=600>
+<img src="asif_resultado.png" width=600>
 
 *Vf0=18 m/s, D0=150 m, Vd=22 m/s, Td=1.8 s.* Repare no gráfico `h(m)`: a barreira fica "grudada" em zero por dois trechos prolongados (t≈10–20s e t≈75–80s) — a assinatura visual do comportamento derivado na Seção 2.3: enquanto a CBF está ativa, `Vf` deixa de perseguir `Vd` e passa a acompanhar `Vl` com atraso `Td`. Fora desses trechos, `Vf` persegue `Vd` livremente. `min(hacc) = 3.04×10⁻¹⁰` (validado, sem violação).
 
