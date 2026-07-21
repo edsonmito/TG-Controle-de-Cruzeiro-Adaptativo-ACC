@@ -1,6 +1,6 @@
 # Modelando a Programação Quadrática (QP)
 
-O QP recebe as duas restrições (CLF e CBF) e calcula o controle $ u $ que satisfaz ambas da melhor forma possível.
+O QP recebe as duas restrições (CLF e CBF) e calcula o controle $u$ que satisfaz ambas da melhor forma possível.
 
 ## 1. O que o QP precisa decidir?
 
