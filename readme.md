@@ -41,6 +41,7 @@ Onde $L_f$ e $L_g$ representam as Derivadas de Lie calculadas dinamicamente no s
 * <a href="docs/cbf.md">Segurança via CBF (Control Barrier Functions)</a>: Garante a invariância do conjunto seguro, agindo como um filtro de segurança inviolável para evitar colisões traseiras.
 
 ### 3. Programação Quadrática (QP)
+Modelagem Matemática do Veículo - Formulação do Problema de Otimização (QP)
 
 * <a href="modelagem/qp.md">Modelagem QP</a>
 
