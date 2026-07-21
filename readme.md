@@ -1,15 +1,15 @@
 
 # Controle de Cruzeiro Adaptativo (ACC) Baseado em Otimização de Sistemas Críticos de Segurança via CLF-CBF-QP
 
-Este repositório reúne o desenvolvimento de um Trabalho de Graduação do curso de Engenharia de Informação, turma 2026.2, da Universidade Federal do ABC (UFABC), sob orientação do Prof. Dr. Caio Chinelato.
+O presente repositório documenta o desenvolvimento de um Trabalho de Graduação apresentado ao curso de Engenharia de Informação da Universidade Federal do ABC (UFABC), referente ao quadrimestre 2026.2, sob orientação do Prof. Dr. Caio Chinelato.
 
-O trabalho investiga o problema do Controle de Cruzeiro Adaptativo (ACC) sob a ótica de sistemas de controle críticos de segurança, unificando dois objetivos que competem entre si: perseguir uma velocidade de cruzeiro desejada e garantir, a todo instante, uma distância segura em relação ao veículo à frente. Para isso, o projeto explora e compara diferentes arquiteturas baseadas em Funções de Lyapunov de Controle (CLF), Funções de Barreira de Controle (CBF) e Programação Quadrática (QP), incluindo:
-
-a formulação unificada CLF-CBF-QP, onde desempenho e segurança são mediados dentro de um único problema de otimização resolvido em tempo real;
-a arquitetura de Filtro de Segurança (ASIF), onde um controlador nominal de desempenho é filtrado por uma camada de segurança independente;
-a arquitetura de dois níveis (nível superior de decisão + nível inferior de atuação via PID), aproximando o modelo de um sistema veicular real.
-
-Toda a simulação foi implementada e validada em MATLAB/Simulink, com documentação detalhada da modelagem matemática, dos parâmetros de projeto e dos resultados obtidos ao longo do desenvolvimento — incluindo o próprio processo de depuração e validação numérica, registrado como parte do aprendizado do trabalho.
+O trabalho tem por objetivo investigar o problema do Controle de Cruzeiro Adaptativo (ACC) sob a perspectiva de sistemas de controle críticos de segurança, propondo a unificação de dois objetivos concorrentes: a manutenção de uma velocidade de cruzeiro desejada e a garantia de uma distância segura em relação ao veículo precedente. Para tanto, são investigadas e comparadas diferentes arquiteturas de controle fundamentadas em Funções de Lyapunov de Controle (CLF), Funções de Barreira de Controle (CBF) e Programação Quadrática (QP), a saber:
+<ul>
+<li>a formulação unificada CLF-CBF-QP, na qual desempenho e segurança são mediados em tempo real por meio de um único problema de otimização;
+<li>a arquitetura de Filtro de Segurança (Active Set Invariance Filter — ASIF), na qual um controlador nominal de desempenho é submetido a uma camada de segurança independente;
+<li>uma arquitetura de dois níveis, composta por um nível superior de decisão e um nível inferior de atuação via controle PID, com vistas a aproximar o modelo simulado de um sistema veicular real.
+</ul>
+A totalidade das simulações apresentadas foi implementada e validada em ambiente MATLAB/Simulink, com documentação detalhada da modelagem matemática, dos parâmetros de projeto adotados e dos resultados obtidos ao longo do desenvolvimento do trabalho.
 
 
 ## Visão Geral do Projeto
