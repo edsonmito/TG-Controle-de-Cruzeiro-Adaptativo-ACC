@@ -2,8 +2,6 @@
 
 Este documento descreve a evolução completa da simulação do ACC — desde a primeira tentativa (arquitetura ASIF com conflito CBF×conforto) até a arquitetura de dois níveis final (Chinelato et al., 2023) — incluindo todo o processo de depuração numérica, as descobertas qualitativas sobre o comportamento das diferentes arquiteturas, e o dicionário completo de parâmetros.
 
----
-
 ## 1. Visão Geral: Três Gerações de Implementação
 
 O projeto passou por três gerações de código, cada uma resolvendo um problema da anterior:
@@ -37,7 +35,6 @@ flowchart TB
 | `ACC_TESTE_2026.slx` | Malha fechada Simulink — Integrators, Clock, Demux | Compartilhado pelos três `fcn` acima (trocando o conteúdo do bloco) |
 | `INIT_ACC_2026.m` | Define `Vf0`, `D0`, roda `sim(...)`, plota resultados | Script principal |
 
----
 
 ## 2. CLF-CBF-QP vs. ASIF: Duas Filosofias de Controle
 
@@ -83,7 +80,6 @@ O sistema alterna entre dois modos:
 
 No CLF-CBF-QP completo, esse chaveamento é suavizado pela variável `δ`, que permite ao sistema "negociar" em vez de abandonar `Vd` por completo.
 
----
 
 ## 3. Histórico de Validação Numérica do `psc`
 
@@ -126,7 +122,6 @@ $$p_{sc} \to \infty \quad\Longrightarrow\quad \text{CLF-CBF-QP} \to \text{ASIF}$
 
 Essa é uma contribuição analítica que emergiu da investigação empírica deste projeto — vale destacá-la na seção de discussão do TG.
 
----
 
 ## 4. Arquitetura de Dois Níveis (Chinelato et al., 2023)
 
@@ -170,7 +165,6 @@ A prova de invariância da CBF (usada em todos os testes anteriores) assume que 
 
 Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto do modelo) não podem usar `persistent` — solvers de passo variável chamam a função múltiplas vezes por passo (estágios intermediários), o que corromperia a memória do PID. Correção: configurar o **Sample Time** do bloco para um valor discreto fixo (`0.02`, mesmo valor do `Ts` usado no cálculo do termo integral).
 
----
 
 ## 5. Dicionário de Parâmetros (consolidado)
 
@@ -209,7 +203,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 | $D_0$ | 150 m | Definido em `INIT_ACC_2026.m` |
 | `tspan` | [0, 100] s | Necessário para cobrir todo o perfil do líder |
 
----
 
 ## 6. Como Cada Parâmetro Afeta a Performance
 
@@ -220,7 +213,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 - **Limites de atuador (`a_th_max`, `a_br_max`) ↓** (mais restritivos) → maior risco da violação descrita na Seção 4.3, já que o gap entre `a_h*` (irrestrito) e `ah` (saturado) cresce.
 - **`Vf0`, `D0`** → não são parâmetros de sintonia, mas definem o ponto de partida em relação à fronteira do conjunto seguro; início muito próximo da borda intensifica transientes de frenagem.
 
----
 
 ## 7. Tabela-Resumo: "O que mexer para..."
 
@@ -233,7 +225,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 | Reduza a violação de segurança do nível inferior (Seção 4.3) | `a_th_max`, `a_br_max` (aumentar) ou adicionar restrição de conforto no QP superior | Ajustar limites físicos ou implementar `h_F` |
 | Teste apenas o comportamento nominal, sem segurança (ASIF) | `cbfacc_ativ` | Definir `0` |
 
----
 
 ## 8. Resultados Visuais das Simulações
 
