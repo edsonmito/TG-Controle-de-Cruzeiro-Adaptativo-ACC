@@ -2,8 +2,6 @@
 
 Este documento descreve a evolução completa da simulação do ACC — desde a primeira tentativa (arquitetura ASIF com conflito CBF×conforto) até a arquitetura de dois níveis final (Chinelato et al., 2023) — incluindo todo o processo de depuração numérica, as descobertas qualitativas sobre o comportamento das diferentes arquiteturas, e o dicionário completo de parâmetros.
 
----
-
 ## 1. Visão Geral: Três Gerações de Implementação
 
 O projeto passou por três gerações de código, cada uma resolvendo um problema da anterior:
@@ -37,7 +35,6 @@ flowchart TB
 | `ACC_TESTE_2026.slx` | Malha fechada Simulink — Integrators, Clock, Demux | Compartilhado pelos três `fcn` acima (trocando o conteúdo do bloco) |
 | `INIT_ACC_2026.m` | Define `Vf0`, `D0`, roda `sim(...)`, plota resultados | Script principal |
 
----
 
 ## 2. CLF-CBF-QP vs. ASIF: Duas Filosofias de Controle
 
@@ -83,7 +80,6 @@ O sistema alterna entre dois modos:
 
 No CLF-CBF-QP completo, esse chaveamento é suavizado pela variável `δ`, que permite ao sistema "negociar" em vez de abandonar `Vd` por completo.
 
----
 
 ## 3. Histórico de Validação Numérica do `psc`
 
@@ -126,7 +122,6 @@ $$p_{sc} \to \infty \quad\Longrightarrow\quad \text{CLF-CBF-QP} \to \text{ASIF}$
 
 Essa é uma contribuição analítica que emergiu da investigação empírica deste projeto — vale destacá-la na seção de discussão do TG.
 
----
 
 ## 4. Arquitetura de Dois Níveis (Chinelato et al., 2023)
 
@@ -170,7 +165,6 @@ A prova de invariância da CBF (usada em todos os testes anteriores) assume que 
 
 Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto do modelo) não podem usar `persistent` — solvers de passo variável chamam a função múltiplas vezes por passo (estágios intermediários), o que corromperia a memória do PID. Correção: configurar o **Sample Time** do bloco para um valor discreto fixo (`0.02`, mesmo valor do `Ts` usado no cálculo do termo integral).
 
----
 
 ## 5. Dicionário de Parâmetros (consolidado)
 
@@ -209,7 +203,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 | $D_0$ | 150 m | Definido em `INIT_ACC_2026.m` |
 | `tspan` | [0, 100] s | Necessário para cobrir todo o perfil do líder |
 
----
 
 ## 6. Como Cada Parâmetro Afeta a Performance
 
@@ -220,7 +213,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 - **Limites de atuador (`a_th_max`, `a_br_max`) ↓** (mais restritivos) → maior risco da violação descrita na Seção 4.3, já que o gap entre `a_h*` (irrestrito) e `ah` (saturado) cresce.
 - **`Vf0`, `D0`** → não são parâmetros de sintonia, mas definem o ponto de partida em relação à fronteira do conjunto seguro; início muito próximo da borda intensifica transientes de frenagem.
 
----
 
 ## 7. Tabela-Resumo: "O que mexer para..."
 
@@ -233,7 +225,6 @@ Blocos MATLAB Function com tempo de amostragem **contínuo** (herdado do resto d
 | Reduza a violação de segurança do nível inferior (Seção 4.3) | `a_th_max`, `a_br_max` (aumentar) ou adicionar restrição de conforto no QP superior | Ajustar limites físicos ou implementar `h_F` |
 | Teste apenas o comportamento nominal, sem segurança (ASIF) | `cbfacc_ativ` | Definir `0` |
 
----
 
 ## 8. Resultados Visuais das Simulações
 
@@ -241,35 +232,25 @@ As imagens abaixo foram geradas no MATLAB/Simulink a partir de `INIT_ACC_2026.m`
 
 ### 8.1 ASIF — Filtro Nominal + CBF
 
-![Resultado da simulação ASIF](img/asif_resultado.png)
+<img src="asif_resultado.png" width=600>
 
 *Vf0=18 m/s, D0=150 m, Vd=22 m/s, Td=1.8 s.* Repare no gráfico `h(m)`: a barreira fica "grudada" em zero por dois trechos prolongados (t≈10–20s e t≈75–80s) — a assinatura visual do comportamento derivado na Seção 2.3: enquanto a CBF está ativa, `Vf` deixa de perseguir `Vd` e passa a acompanhar `Vl` com atraso `Td`. Fora desses trechos, `Vf` persegue `Vd` livremente. `min(hacc) = 3.04×10⁻¹⁰` (validado, sem violação).
 
-**Inserir aqui:** `docs/img/asif_resultado.png`
-
----
 
 ### 8.2 CLF-CBF-QP completo (`psc = 10`)
 
-![Resultado da simulação CLF-CBF-QP, psc=10](img/clfcbfqp_psc10_resultado.png)
+<img src="clfcbfqp_psc10_resultado.png" width=600>
 
 *Mesmas condições iniciais do ASIF.* Comparado à Seção 8.1, o comportamento é visualmente parecido — consistente com a descoberta da Seção 3.3 (`psc` grande aproxima o CLF-CBF-QP do caso-limite ASIF). A diferença fica no grau de liberdade extra (`δ`): mesmo com a CBF ativa, o sistema ainda tenta minimizar o afastamento de `Vd`. `min(hacc) = 3.40×10⁻¹⁰` (validado, sem violação) — este é o valor de `psc` recomendado (Seção 3.1, iteração 4).
 
-**Inserir aqui:** `docs/img/clfcbfqp_psc10_resultado.png`
-
----
-
 ### 8.3 Arquitetura de Dois Níveis (Chinelato et al., 2023)
 
-![Resultado da simulação com dois níveis - velocidades e aceleração](img/chinelato_niveis_resultado.png)
-
-![Resultado da simulação com dois níveis - throttle e freio](img/chinelato_niveis_throttle_freio.png)
+<img src="chinelato_niveis_resultado.png" width=600>
+<p>
+<img src="chinelato_niveis_throttle_freio.png" width=600>
 
 *Mesmas condições iniciais.* O primeiro gráfico mostra `a_h^*` (desejado pelo nível superior) disparando para ~20 m/s² em `t≈0` — muito acima da capacidade física dos atuadores (`a_th_max=3`, `a_br_max=6`) — enquanto `a_h` (real, pós-saturação) permanece contido. O segundo gráfico mostra `uth`/`ubr` nunca ativos simultaneamente, com o freio reagindo exatamente nos instantes de pressão da CBF (t≈10s e t≈75s, coincidindo com os vales de `h(m)` do gráfico principal). Esta é a arquitetura que revelou o achado da Seção 4.3: `min(hacc) = −0.0053` em `t=10.36s` — uma violação pequena, mas real, causada pela saturação do nível inferior não estar contemplada na prova formal do nível superior.
 
-**Inserir aqui:** `docs/img/chinelato_niveis_resultado.png` e `docs/img/chinelato_niveis_throttle_freio.png`
-
----
 
 ## 9. Referências
 
