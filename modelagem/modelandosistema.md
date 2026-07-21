@@ -96,7 +96,7 @@ O controlador QP exige que o sistema esteja na forma afim (linear no controle $u
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20f(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20-%5Cfrac%7BF_r(V_f)%7D%7Bm%7D%20%5C%5C%20V_l%20-%20V_f%20%5Cend%7Bbmatrix%7D%2C%20%5Cqquad%20g(x)%20%3D%20%5Cbegin%7Bbmatrix%7D%20%5Cfrac%7B1%7D%7Bm%7D%20%5C%5C%200%20%5Cend%7Bbmatrix%7D">
 </div>
 
-Esta é exatamente a estrutura utilizada no seu script `LIE_2026.m` para calcular as derivadas de Lie:
+Esta é a estrutura utilizada no script `LIE_2026.m` para calcular as derivadas de Lie:
 
 ```matlab
 syms m Vf Vd xr Vl Fr Td Ds
