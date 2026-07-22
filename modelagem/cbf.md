@@ -98,7 +98,7 @@ Assim como $c_V$ define a agressividade da CLF, $\gamma$ define a "sensibilidade
 
 ## 7. Conexão Direta com o Código (`LIE_2026.m`)
 
-Toda essa dedução matemática está implementada no seu script. Veja a correspondência:
+Toda essa dedução matemática está implementada no script:
 
 | Matemática (Teoria) | Código (MATLAB) | O que faz |
 | :--- | :--- | :--- |
