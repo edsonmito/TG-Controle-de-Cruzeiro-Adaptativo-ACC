@@ -13,7 +13,6 @@ $$\dot{x} = f(x) + g(x)u$$
 
 O objetivo deixa de ser apenas *analisar* a estabilidade natural do sistema e passa a ser **projetar/sintetizar** uma lei de controle $u = k(x)$ que force o sistema a ser estável. É aqui que entra o conceito de **Função de Lyapunov de Controle (CLF)**.
 
----
 
 ## 2. Adaptação Teórica para o Controle de Cruzeiro (Rastreamento)
 
@@ -42,7 +41,6 @@ $$V(e) = e^2 = (V_f - V_d)^2$$
 
 Portanto, $V(e)$ é uma função candidata válida de Lyapunov globalmente definida positiva.
 
----
 
 ## 3. Dedução da Derivada de Lyapunov ao longo das Trajetórias
 
@@ -65,7 +63,6 @@ Onde:
 
 *(Estes são exatamente os termos que o seu arquivo `LIE_2026.m` calcula simbolicamente no MATLAB).*
 
----
 
 ## 4. Imposição de Estabilidade Exponencial (Sintonia do Controlador)
 
