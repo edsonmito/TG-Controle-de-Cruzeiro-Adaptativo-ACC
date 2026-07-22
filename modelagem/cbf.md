@@ -113,7 +113,7 @@ A CBF foi definida como $h = D - \tau_h V_f$, representando a distância de segu
  
 Enquanto a CLF impõe uma desigualdade de 'menor ou igual' ($\leq$) para garantir a convergência da velocidade, a CBF impõe uma desigualdade de 'maior ou igual' ($\geq$) para garantir a manutenção da distância. O QP resolve este conflito priorizando a restrição da CBF (rígida), relaxando a CLF ($\delta$) quando necessário.
 
-**Agora você tem os dois lados da mesma moeda:** 
+**Portanto:** 
 - **CLF**: puxa o carro para $V_d$. 
 - **CBF**: segura o carro para que $D$ não caia abaixo de $\tau_h V_f$, criando um equilíbrio dinâmico entre desempenho e segurança.
 O **QP** (com a ajuda do $\delta$ e do $p_\delta$) é o árbitro que decide, a cada instante, qual dos dois vai vencer a queda de braço!
