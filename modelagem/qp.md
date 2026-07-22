@@ -39,7 +39,7 @@ O QP minimiza a seguinte função custo quadrática:
 
 **Interpretação:**
 - **$\frac{1}{2} u^2$**: Penaliza acelerações/frenagens muito fortes (conforto e eficiência).
-- **$p_\delta \delta^2$**: Penaliza a relaxação da CLF. O peso $p_\delta$ é altíssimo (ex: $10^5$), então o QP **odeia** usar $\delta > 0$. Só usa em emergências.
+- **$p_\delta \delta^2$**: Penaliza a relaxação da CLF. O peso $p_\delta$ é altíssimo (ex: $10^5$), então o QP usa $\delta > 0$ apenas em emergência.
 
 ## 4. As Restrições (As "Regras do Jogo")
 
