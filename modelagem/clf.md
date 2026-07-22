@@ -170,9 +170,9 @@ Se a restrição acima for muito rígida, pode não existir solução quando a s
 - Se $\delta > 0$: A CLF é relaxada. O carro **prioriza a segurança** (freia) em vez de seguir $V_d$. O QP minimiza $\delta^2$ com um peso altíssimo para que isso só aconteça em emergências.
 
 
-## 8. Conexão Direta com o seu Código MATLAB (`LIE_2026.m`)
+## 8. Conexão Direta com o Código MATLAB (`LIE_2026.m`)
 
-Toda essa dedução matemática está implementada no seu script de Lie. Abra o arquivo `LIE_2026.m` e veja a correspondência:
+Toda a dedução matemática está implementada no script `LIE_2026.m`:
 
 | Matemática (Teoria) | Código (MATLAB) | O que faz |
 | :--- | :--- | :--- |
