@@ -120,7 +120,7 @@ Com `psc` grande, relaxar a CLF via `δ` fica caro para praticamente qualquer er
 $$p_{sc} \to 0 \quad\Longrightarrow\quad \text{zona preguiçosa, } V_d \text{ é ignorado facilmente}$$
 $$p_{sc} \to \infty \quad\Longrightarrow\quad \text{CLF-CBF-QP} \to \text{ASIF}$$
 
-Essa é uma contribuição analítica que emergiu da investigação empírica deste projeto — vale destacá-la na seção de discussão do TG.
+Essa é uma contribuição analítica que emergiu da investigação empírica deste projeto.
 
 
 ## 4. Arquitetura de Dois Níveis (Chinelato et al., 2023)
