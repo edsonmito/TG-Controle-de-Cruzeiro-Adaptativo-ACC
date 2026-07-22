@@ -74,7 +74,7 @@ Substituindo as Derivadas de Lie deduzidas:
 
 $$L_f V(x) + L_g V(x) \cdot u \le -c \cdot V(x)$$
 
-Esta desigualdade é a **Restrição CLF** do seu projeto. Qualquer sinal de controle $u$ que satisfaça essa inequação garante que o erro de velocidade convergirá exponencialmente para zero.
+Esta desigualdade é a **Restrição CLF** do projeto. Qualquer sinal de controle $u$ que satisfaça essa inequação garante que o erro de velocidade convergirá exponencialmente para zero.
 
 ### O Ajuste de Robustez (Variável de Folga $\delta$)
 
