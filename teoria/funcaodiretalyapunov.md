@@ -102,7 +102,6 @@ $$A^T P + P A < 0$$
 
 A resolução desse problema para sistemas lineares com realimentação de estados deu origem ao uso massivo de **LMIs (Linear Matrix Inequalities)**, permitindo que computadores encontrem controladores robustos otimizados em segundos através de algoritmos de otimização convexa.
 
----
 
 ## Como isso se conecta ao seu projeto (CLF-CBF-QP)?
 
