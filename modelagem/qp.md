@@ -122,7 +122,7 @@ O QP analisa as duas restrições e toma a decisão em 3 passos:
 | **QP** | Minimiza $u^2 + p_\delta \delta^2$ | Encontra a aceleração que satisfaz as restrições com o menor esforço possível. |
 
 
-**Nota Final:** Este sistema de equações é a base teórica implementada no seu modelo Simulink (`ACC_TESTE_2026`) e resolvida numericamente pelo algoritmo de Hildreth (`QPhild.m`). Enquanto 
+**Nota Final:** Este sistema de equações é a base teórica implementada no modelo Simulink (`ACC_TESTE_2026`) e resolvida numericamente pelo algoritmo de Hildreth (`QPhild.m`). Enquanto 
 
 
 ## 8. Conexão com o código (`QPhild.m` e Simulink)
