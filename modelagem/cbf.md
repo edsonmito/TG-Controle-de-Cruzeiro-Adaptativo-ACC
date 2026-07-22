@@ -5,7 +5,7 @@ No ACC, a região segura é definida pela distância entre os carros: ela nunca 
 
 ## 1. Função de Barreira de Controle (CBF) - Segurança
 
-Para aplicar a CBF, precisamos definir matematicamente o que é "seguro". Definimos o conjunto $\mathcal{C}$$ (safe set) como:
+Para aplicar a CBF, precisamos definir matematicamente o que é "seguro". Definimos o conjunto $\mathcal{C}$ (safe set) como:
 
 <div align="center">
   <img src="https://latex.codecogs.com/png.image?%5Ccolor%7Bblack%7D%20%5Cmathcal%7BC%7D%20%3D%20%5C%7B%20x%20%5Cin%20%5Cmathbb%7BR%7D%5E2%20%5C%2C%20%7C%20%5C%2C%20h(x)%20%5Cgeq%200%20%5C%7D">
