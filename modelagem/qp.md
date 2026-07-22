@@ -127,7 +127,7 @@ O QP analisa as duas restrições e toma a decisão em 3 passos:
 
 ## 8. Conexão com o código (`QPhild.m` e Simulink)
 
-No seu bloco `CLF_CBF_QP` do Simulink, você monta as matrizes:
+No bloco `CLF_CBF_QP` do Simulink, monta-se as matrizes:
 
 | Variável | O que contém | De onde vem |
 | :--- | :--- | :--- |
