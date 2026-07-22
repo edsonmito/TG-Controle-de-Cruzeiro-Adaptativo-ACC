@@ -143,7 +143,7 @@ E chama o `QPhild.m`, que resolve este sistema $Az \leq b$ usando o algoritmo de
 O QP atua como um mecanismo de mediação entre a CLF e a CBF, resolvendo um problema de otimização quadrática que minimiza o esforço de controle $u^2$ e a relaxação da CLF $\delta^2$. As restrições da CLF e da CBF são formuladas como desigualdades lineares afins em $u$, resultando em um problema convexo de rápida solução. Quando as restrições entram em conflito, o QP prioriza a CBF (rígida) e eleva o valor de $\delta$ (relaxação da CLF) apenas o suficiente para garantir a factibilidade. Esta estrutura garante que a segurança nunca seja violada, enquanto o desempenho é otimizado sempre que possível.
 
 **Portanto:** 
-- CLF puxa para frente (desempenho). 
-- CBF segura para trás (segurança). 
+- CLF preocupa-se com o desempenho. 
+- CBF prioriza a segurança. 
 - QP é o juiz que calcula o equilíbrio perfeito a cada milésimo de segundo, usando $\delta$ como o "termo de ajuste" para evitar que o problema fique sem solução.
 
