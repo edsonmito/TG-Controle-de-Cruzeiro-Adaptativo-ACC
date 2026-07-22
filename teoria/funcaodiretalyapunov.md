@@ -81,7 +81,7 @@ As **Funções de Lyapunov de Barreira (BLF)** são construídas de modo que seu
 
 ### C. Teorema de Krasovskii e Método de Variáveis de Gradiente
 
-Para sistemas não-lineares genéricos, encontrar uma função de Lyapunov adequada ($V(x)$) é uma tarefa difícil, pois não há um método sistemático único.
+Para sistemas não-lineares genéricos, encontrar uma função de Lyapunov adequada $V(x)$ é uma tarefa difícil, pois não há um método sistemático único.
 
 * O **Método de Krasovskii** propõe uma estrutura de Lyapunov baseada diretamente na matriz Jacobiana do sistema: $V(x) = f(x)^T P f(x)$.
 * O **Método de Variáveis de Gradiente** assume um gradiente para $V(x)$ e utiliza condições de integrabilidade para reconstruir a função de energia, facilitando a análise de sistemas físicos complexos.
