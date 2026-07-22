@@ -105,7 +105,7 @@ A resolução desse problema para sistemas lineares com realimentação de estad
 
 ## Como isso se conecta ao seu projeto (CLF-CBF-QP)?
 
-No seu projeto de ACC, a **CLF** é implementada sob a forma quadrática clássica do erro de velocidade:
+No projeto de ACC, a **CLF** é implementada sob a forma quadrática clássica do erro de velocidade:
 
 
 $$V(x) = (V_f - V_d)^2$$
