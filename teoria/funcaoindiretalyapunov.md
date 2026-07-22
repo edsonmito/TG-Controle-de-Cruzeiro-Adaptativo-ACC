@@ -66,11 +66,11 @@ No seu trabalho, você utiliza o **Método Direto** com a CLF `V = (Vf - Vd)²` 
 
 ---
 
-## 4. Conclusão para seu TCC
+## 4. Conclusão
 
-> "O Método Indireto de Lyapunov, embora amplamente utilizado em sistemas lineares, apresenta uma limitação fundamental para este trabalho: sua validade é estritamente local. Dado que o veículo pode operar em uma ampla faixa de velocidades e que a atuação da CBF pode levar o sistema para regiões distantes do equilíbrio, a linearização não seria capaz de garantir formalmente a estabilidade global. 
-> 
-> Por este motivo, optou-se pelo **Método Direto de Lyapunov**, que, através da função `V = (Vf - Vd)²`, fornece uma prova de estabilidade válida para todo o domínio de operação, sendo perfeitamente compatível com a estrutura de otimização (QP) utilizada para mediar o conflito entre desempenho e segurança."
+O Método Indireto de Lyapunov, embora amplamente utilizado em sistemas lineares, apresenta uma limitação fundamental para este trabalho: sua validade é estritamente local. Dado que o veículo pode operar em uma ampla faixa de velocidades e que a atuação da CBF pode levar o sistema para regiões distantes do equilíbrio, a linearização não seria capaz de garantir formalmente a estabilidade global. 
+ 
+Por este motivo, optou-se pelo **Método Direto de Lyapunov**, que, através da função `V = (Vf - Vd)²`, fornece uma prova de estabilidade válida para todo o domínio de operação, sendo perfeitamente compatível com a estrutura de otimização (QP) utilizada para mediar o conflito entre desempenho e segurança.
 
 
 
