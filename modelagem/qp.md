@@ -145,5 +145,5 @@ O QP atua como um mecanismo de mediação entre a CLF e a CBF, resolvendo um pro
 **Portanto:** 
 - CLF preocupa-se com o desempenho. 
 - CBF prioriza a segurança. 
-- QP é o juiz que calcula o equilíbrio perfeito a cada milésimo de segundo, usando $\delta$ como o "termo de ajuste" para evitar que o problema fique sem solução.
+- QP calcula o equilíbrio perfeito a cada milésimo de segundo, usando $\delta$ como o "termo de ajuste" para evitar que o problema fique sem solução.
 
