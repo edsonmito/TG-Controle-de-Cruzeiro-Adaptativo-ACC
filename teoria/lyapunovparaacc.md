@@ -61,7 +61,7 @@ Onde:
 * $L_f V(x)$ representa a variação "natural" da energia do sistema devido ao arrasto aerodinâmico $F_r$.
 * $L_g V(x)$ representa a autoridade ou ganho que o controle $u$ possui para alterar essa energia.
 
-*(Estes são exatamente os termos que o seu arquivo `LIE_2026.m` calcula simbolicamente no MATLAB).*
+*(Estes são exatamente os termos que o arquivo `LIE_2026.m` calcula simbolicamente no MATLAB).*
 
 
 ## 4. Imposição de Estabilidade Exponencial (Sintonia do Controlador)
